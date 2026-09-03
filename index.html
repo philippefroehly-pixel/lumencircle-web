@@ -4,173 +4,245 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lumen Circle — dein Zuhause auf einen Blick</title>
-<meta name="description" content="Lumen Circle macht aus einem iPad an der Wand ein Panel für dein Zuhause: Räume statt Geräte, Licht mit einem Ring, Luft und Temperatur im Blick — und was das Licht gerade kostet. Für HomeKit und Philips Hue. Vier Tage testen, dann CHF 8 einmalig."
+<meta name="description" content="Ein iPad an der Wand, das man aus zwei Metern liest. Das iPhone als Fernbedienung, die Apple Watch als Drehregler. Für Apple Home und Philips Hue, mit Stromkosten des Lichts. CHF 8 im Jahr, die ersten vier Tage kostenlos.">
 <meta property="og:title" content="Lumen Circle — dein Zuhause auf einen Blick">
-<meta property="og:description" content="Räume statt Geräte. Licht mit einem Ring. Für HomeKit, auf iPhone, iPad und Apple Watch.">
+<meta property="og:description" content="Räume statt Geräte. Licht mit einem Ring. Für Apple Home und Philips Hue, auf iPad, iPhone und Apple Watch.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lumencircle.ch">
-<meta property="og:image" content="https://lumencircle.ch/assets/dashboard.png">
+<meta property="og:image" content="https://lumencircle.ch/assets/ipad.png">
 <meta name="theme-color" content="#0e0a1c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <div class="wrap brand">
-    <span class="ring" aria-hidden="true"></span>
-    <span>Lumen Circle</span>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="arc" x1="0.12" y1="0.94" x2="0.9" y2="0.08">
+      <stop offset="0" stop-color="#FFB86B"/>
+      <stop offset="0.42" stop-color="#F2789F"/>
+      <stop offset="1" stop-color="#A97BFF"/>
+    </linearGradient>
+    <symbol id="ring" viewBox="0 0 1024 1024">
+      <circle cx="512" cy="512" r="290" fill="none" stroke="#fff" stroke-opacity="0.10" stroke-width="104"/>
+      <path d="M 512 222 A 290 290 0 1 1 243.1 403.4" fill="none" stroke="url(#arc)" stroke-width="104" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg class="mark" aria-hidden="true"><use href="#ring"/></svg>
+      <span>Lumen Circle</span>
+    </a>
+    <nav aria-label="Seite">
+      <a href="#strom">Strom</a>
+      <a href="#einrichten">Einrichten</a>
+      <a href="#preis">Preis</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
   </div>
 </header>
 
 <main>
 
-<div class="wrap hero">
-  <div>
-    <h1>Dein Zuhause auf einen Blick.</h1>
-    <p class="lede">
-      Ein iPad an der Wand wird zum Panel, das man aus zwei Metern liest. Das
-      iPhone wird die Fernbedienung dazu. Du siehst Räume statt Gerätelisten,
-      regelst das Licht an einem Ring und liest Temperatur und Luft dort ab, wo
-      du ohnehin hinschaust. Und du siehst, was das Licht gerade zieht und was
-      es diesen Monat gekostet hat.
-    </p>
-    <p class="price-line">
-      <strong>CHF 8.–</strong>
-      <span>einmalig · 4 Tage kostenlos testen</span>
-    </p>
-  </div>
-  <div class="shot">
-    <img src="assets/dashboard.png" width="759" height="1650"
-         alt="Lumen Circle auf einem iPhone: Uhrzeit, Szenen, eine Warnung zur Luft im Büro und darunter die Räume mit Lichtringen.">
-  </div>
-</div>
-
-<section>
+<section class="hero" aria-labelledby="titel">
+  <svg class="hero-ring" aria-hidden="true"><use href="#ring"/></svg>
   <div class="wrap">
-    <h2>Räume, keine Geräteliste</h2>
-    <p>
-      Dreissig Leuchten ergeben als Liste eine unlesbare Kachelwand. Als Räume
-      sind es sechs Zeilen. Dazu kommt, dass niemand in Geräten denkt: Im Kopf
-      steht „im Wohnzimmer brennt Licht“ und nicht „Leuchte 3 von 7 steht auf
-      72 %“. Wer eine einzelne Lampe braucht, klappt den Raum auf.
-    </p>
+    <div>
+      <p class="eyebrow">Für Apple Home und Philips Hue</p>
+      <h1 id="titel">Dein Zuhause auf einen Blick.</h1>
+      <p class="lede">
+        Ein iPad an der Wand, das man aus zwei Metern liest. Das iPhone als
+        Fernbedienung. Die Apple Watch als Drehregler.
+      </p>
+      <p class="price">
+        <strong>CHF 8 im Jahr</strong>
+        <span>die ersten vier Tage kostenlos</span>
+      </p>
+      <p class="small">
+        Noch nicht im App Store. Sobald die App freigegeben ist, steht der Link hier.
+      </p>
+    </div>
+    <div class="device tablet">
+      <img src="assets/ipad.png" width="1032" height="1376"
+           alt="Lumen Circle auf einem iPad: grosse Uhrzeit, darunter die Räume mit ihren Lichtringen, Temperatur und Luft je Raum.">
+    </div>
   </div>
 </section>
 
-<section>
+<section class="section" aria-labelledby="geraete">
   <div class="wrap">
-    <h2>Der Ring ist der Regler</h2>
-    <div class="grid">
+    <p class="eyebrow">Drei Geräte, eine Wohnung</p>
+    <h2 id="geraete">Jedes tut, was es am besten kann.</h2>
+    <div class="worlds">
+      <div class="world">
+        <div class="shot">
+          <img src="assets/ipad-ruhe.png" width="1032" height="1376" loading="lazy"
+               alt="Das iPad in Ruhelage: grosse Uhrzeit, Datum, je Raum Temperatur und Luft, und welche Räume Licht haben.">
+        </div>
+        <p class="eyebrow">iPad</p>
+        <h3>Das Wandpanel</h3>
+        <p>
+          Läuft rund um die Uhr. Zeigt Räume statt Geräte, Temperatur und Luft,
+          und was das Licht gerade zieht. Nach gut einer Minute ohne Berührung
+          wird daraus ein ruhiges Bild mit Uhrzeit und Wetter. Nichts brennt
+          ein, nachts blendet nichts.
+        </p>
+      </div>
+      <div class="world">
+        <div class="shot">
+          <img src="assets/dashboard.png" width="759" height="1650" loading="lazy"
+               alt="Das iPhone-Dashboard: Uhrzeit, Szenen, ein Chip mit Leistung und Monatskosten, darunter die Räume mit ihren Lichtringen.">
+        </div>
+        <p class="eyebrow">iPhone</p>
+        <h3>Die Fernbedienung</h3>
+        <p>
+          Dasselbe Bild in der Hand. Ein Tipp öffnet den Ring, ein Zug dimmt
+          den ganzen Raum. Wer weggeht und Licht brennen lässt, bekommt eine
+          Mitteilung.
+        </p>
+      </div>
+      <div class="world">
+        <div class="shot shot-ring" aria-hidden="true">
+          <svg><use href="#ring"/></svg>
+        </div>
+        <p class="eyebrow">Apple Watch</p>
+        <h3>Der Drehregler</h3>
+        <p>
+          Die Digitale Krone dimmt den Raum, mit Rasten in der Hardware. Auf dem
+          Zifferblatt steht, ob noch Licht brennt.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="ring">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">Licht</p>
+      <h2 id="ring">Der Ring ist der Regler.</h2>
+      <p class="muted">
+        Wie weit der Bogen geschlossen ist, zeigt, wie viel Licht im Raum
+        brennt. Seine Farbe ist die Farbe, die deine Lampen gerade haben.
+      </p>
+      <ul class="points">
+        <li><strong>Ein Tipp</strong> zieht den Ring gross auf.</li>
+        <li><strong>Ein Zug</strong> regelt alle Leuchten des Raums zugleich; jedes Prozent rastet spürbar ein.</li>
+        <li><strong>Eine einzelne Lampe?</strong> Raum aufklappen, dort steht sie.</li>
+      </ul>
+      <p class="note">
+        Dreissig Leuchten sind als Liste eine Kachelwand. Als Räume sind es
+        sechs Zeilen. Im Kopf heisst es „im Wohnzimmer brennt Licht“, nicht
+        „Leuchte 3 von 7 steht auf 72 %“.
+      </p>
+    </div>
+    <div class="device phone">
+      <video src="assets/intro.mp4" width="1080" height="1920"
+             autoplay muted loop playsinline
+             aria-label="Eine Hand nimmt ein iPhone auf und dimmt das Licht im Wohnzimmer von 90 auf 45 Prozent."></video>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="strom" aria-labelledby="strom-titel">
+  <div class="wrap two">
+    <div class="device phone">
+      <img src="assets/strom.png" width="759" height="1650"
+           alt="Der Strom-Bildschirm: Strompreis mit Hoch- und Niedertarif, die Leistung gerade, Verbrauch und Kosten des Monats, darunter die Schalter für Meldungen.">
+    </div>
+    <div>
+      <p class="eyebrow">Strom</p>
+      <h2 id="strom-titel">Was das Licht kostet.</h2>
+      <p class="muted">
+        Hue-Lampen messen ihren Verbrauch nicht. Lumen Circle rechnet ihn, mit
+        Kurven, die an echten Lampen gemessen wurden: für jedes Modell, von
+        einem Prozent bis Vollgas. Eine halb gedimmte Lampe zieht oft nur ein
+        Drittel.
+      </p>
+      <ul class="points">
+        <li><strong>Jetzt:</strong> die Leistung je Raum und gesamt, auf dem Panel und im Bildschirmschoner.</li>
+        <li><strong>Tag, Woche, Monat, Jahr:</strong> Kosten mit deinem Strompreis, auf Wunsch mit Hoch- und Niedertarif.</li>
+        <li><strong>Neue Lampe?</strong> Ihr Profil holt die App von selbst.</li>
+        <li><strong>Auf Wunsch:</strong> eine Tagesbilanz am Abend, eine Warnung bei hoher Last, eine Monatsgrenze in Franken. Alle drei ab Werk aus.</li>
+      </ul>
+      <p class="note">
+        Einmal den Knopf auf der Hue Bridge drücken, das ist die ganze
+        Einrichtung. Die Messwerte stammen aus dem offenen Projekt Powercalc.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="mehr">
+  <div class="wrap">
+    <p class="eyebrow">Ausserdem</p>
+    <h2 id="mehr">Was es sonst noch tut.</h2>
+    <dl class="features">
       <div>
-        <p>
-          Wie weit der Bogen geschlossen ist, zeigt, wie viel Licht im Raum
-          brennt; seine Farbe ist die Farbe, die deine Lampen gerade wirklich
-          haben. Ein Tipp zieht den Ring gross auf. Dann regelst du alle
-          Leuchten des Raums zugleich, und jedes Prozent rastet spürbar unter
-          dem Finger ein.
-        </p>
-        <p class="note">
-          Auf der Apple Watch übernimmt das die Digitale Krone: ein echter
-          Drehregler mit Rasten in der Hardware.
-        </p>
+        <dt>Luft, bevor es auffällt</dt>
+        <dd>CO₂ steigt über Stunden, die Konzentration sinkt lange davor. Lumen Circle nennt nicht nur die Zahl, sondern sagt, dass Lüften hilft.</dd>
       </div>
-      <div class="shot">
-        <video src="assets/intro.mp4" width="1080" height="1920"
-               autoplay muted loop playsinline controls
-               aria-label="Eine Hand nimmt ein iPhone auf und dimmt das Licht im Wohnzimmer von 90 auf 45 Prozent."></video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Was das Licht kostet</h2>
-    <div class="grid">
       <div>
-        <p>
-          Hue-Lampen messen ihren Verbrauch nicht. Lumen Circle rechnet ihn
-          trotzdem, und zwar nicht mit einer Formel, sondern mit Kurven, die an
-          echten Lampen gemessen wurden: für jedes Modell, das die Bridge
-          meldet, von einem Prozent bis Vollgas. Eine gedimmte Lampe zieht
-          deutlich weniger, als die Gerade vermuten liesse; bei halber Helligkeit
-          ist es oft nur ein Drittel.
-        </p>
-        <p>
-          Du siehst die Leistung von jetzt, je Raum und gesamt, und was der Tag,
-          die Woche, der Monat kostet: mit deinem Strompreis, auf Wunsch mit
-          Hoch- und Niedertarif. Kommt eine neue Lampe dazu, holt sich die App
-          ihr Profil von selbst.
-        </p>
-        <p class="note">
-          Dafür verbindet sich Lumen Circle einmal mit deiner Hue Bridge; ein
-          Druck auf ihren Knopf genügt. Die Verbrauchskurven stammen aus dem
-          offenen Projekt Powercalc, in dem Menschen ihre Lampen mit
-          Messgeräten vermessen haben.
-        </p>
+        <dt>Licht vergessen?</dt>
+        <dd>Wer weggeht und Licht brennen lässt, bekommt eine Mitteilung aufs iPhone und an die Watch. Braucht die Standortfreigabe „Immer“. Ab Werk aus.</dd>
       </div>
-      <div class="shot">
-        <img src="assets/strom.png" width="759" height="1650"
-             alt="Der Strom-Bildschirm von Lumen Circle: Strompreis, die Leistung gerade, Verbrauch und Kosten des Monats und darunter die einzelnen Lampen mit ihren gemessenen Profilen.">
+      <div>
+        <dt>Widgets und Komplikationen</dt>
+        <dd>Brennt noch Licht? Die Antwort steht auf dem Homescreen und auf dem Zifferblatt, ohne die App zu öffnen.</dd>
       </div>
-    </div>
+      <div>
+        <dt>Zehn Farbwelten</dt>
+        <dd>Von Aurora über Graphit bis Papier. Nachts wechselt das Panel von selbst in ein warmes Profil.</dd>
+      </div>
+      <div>
+        <dt>Grosse Schrift</dt>
+        <dd>Folgt der Textgrösse aus den iOS-Einstellungen. Ein Panel im Flur wird von allen gelesen, nicht nur von denen mit guten Augen.</dd>
+      </div>
+      <div>
+        <dt>Kurzbefehle als Kacheln</dt>
+        <dd>Saugroboter, Kaffeemaschine, alles ohne HomeKit: Was die Kurzbefehle-App kann, bekommt eine Kachel. Anleitung in fünf Schritten inklusive.</dd>
+      </div>
+      <div>
+        <dt>Wecklicht</dt>
+        <dd>Beginnt bei einem Prozent in tiefem Bernstein und läuft bis zur Weckzeit auf Tageslicht hoch.</dd>
+      </div>
+      <div>
+        <dt>Party-Modus</dt>
+        <dd>Das Licht folgt dem Takt. Gemessen wird nur der Pegel, direkt auf dem Gerät; aufgenommen wird nichts.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
-<section>
-  <div class="wrap wide">
-    <h2>Was es sonst noch tut</h2>
-    <div class="grid three">
-      <div class="card">
-        <h3>Luft, bevor es auffällt</h3>
-        <p>CO₂ steigt über Stunden. Die Konzentration lässt in derselben Zeit nach, und zwar lange bevor man es am eigenen Kopf bemerkt. Deshalb sagt Lumen Circle nicht nur die Zahl, sondern auch, dass Lüften hilft.</p>
-      </div>
-      <div class="card">
-        <h3>Licht vergessen?</h3>
-        <p>Wer weggeht und Licht brennen lässt, bekommt eine Mitteilung aufs iPhone und an die Apple Watch. Dafür merkt sich die App einmal deinen Wohnort und braucht die Standortfreigabe „Immer“. Ab Werk ist die Funktion aus.</p>
-      </div>
-      <div class="card">
-        <h3>Bildschirmschoner</h3>
-        <p>Nach etwas mehr als einer Minute ohne Berührung fällt das Panel auf ein ruhiges Bild zurück: Zeit, Wetter, Temperatur, Luft, und was das Licht gerade zieht und diesen Monat gekostet hat. So brennt sich nichts ein, und nachts blendet der Bildschirm niemanden.</p>
-      </div>
-      <div class="card">
-        <h3>Widgets und Komplikationen</h3>
-        <p>Brennt noch Licht? Die Antwort steht auf dem Homescreen und auf dem Zifferblatt, ohne dass man die App öffnet.</p>
-      </div>
-      <div class="card">
-        <h3>Zehn Farbwelten</h3>
-        <p>Nicht jeder mag Violett. Es gibt zehn Farbwelten, von Monochrom über Graphit bis Papier. Nachts wechselt das Panel von selbst in ein warmes Profil.</p>
-      </div>
-      <div class="card">
-        <h3>Grosse Schrift</h3>
-        <p>Lumen Circle folgt der Textgrösse aus den iOS-Einstellungen. Ein Panel im Flur wird von allen gelesen, nicht nur von denen mit guten Augen.</p>
-      </div>
-      <div class="card">
-        <h3>Meldungen, die du einschaltest</h3>
-        <p>Eine Tagesbilanz am Abend, eine Warnung, wenn ungewöhnlich viel Licht läuft, eine Monatsgrenze in Franken. Alle drei sind ab Werk aus. Eine App, die ungefragt über Geld schreibt, wäre eine Zumutung.</p>
-      </div>
-      <div class="card">
-        <h3>Kurzbefehle als Kacheln</h3>
-        <p>Der Saugroboter, die Kaffeemaschine, alles ohne HomeKit: Was sich in der Kurzbefehle-App steuern lässt, bekommt eine Kachel in der Szenenleiste. Eine Anleitung in fünf Schritten steht gleich daneben.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
+<section class="section" id="einrichten" aria-labelledby="einrichten-titel">
   <div class="wrap">
-    <h2>Nichts einzurichten</h2>
-    <p>
-      Lumen Circle übernimmt Räume, Namen und Szenen aus deiner Home-App. Zum
-      Loslegen fragt iOS beim ersten Start nach dem Zugriff auf dein Zuhause,
-      und damit ist die Einrichtung fertig. Ein Konto brauchst du nicht: Die App
-      spricht direkt mit HomeKit, ohne Anmeldung und ohne Dienst dazwischen.
-      Den Stromzähler schaltest du gleich danach frei: Die App findet deine
-      Hue Bridge im Heimnetz, du drückst einmal den Knopf darauf, fertig. Nach
-      Wetter, Mitteilungen, Weggeh-Meldung und Party-Modus fragt iOS später
-      einzeln, jeweils beim ersten Mal. Wer eine davon ablehnt, verliert genau
-      diese Funktion; der Rest arbeitet weiter.
-    </p>
+    <p class="eyebrow">Einrichten</p>
+    <h2 id="einrichten-titel">Drei Schritte, kein Konto.</h2>
+    <ol class="steps">
+      <li>
+        <div>
+          <h3>Zugriff auf dein Zuhause erlauben.</h3>
+          <p>Räume, Namen und Szenen kommen aus der Home-App. Die App spricht direkt mit HomeKit, ohne Anmeldung und ohne Dienst dazwischen.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Den Knopf auf der Hue Bridge drücken.</h3>
+          <p>Damit zählt der Strom. Die App findet die Bridge im Heimnetz von selbst.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Den Rest fragt iOS, wenn es so weit ist.</h3>
+          <p>Wetter, Mitteilungen, Weggeh-Meldung, Party-Modus: jeweils beim ersten Mal. Wer ablehnt, verliert genau diese Funktion, sonst nichts.</p>
+        </div>
+      </li>
+    </ol>
     <p class="note">
       Voraussetzung ist ein Zuhause in Apples Home-App. Zubehör ohne HomeKit,
       etwa manche Geschirrspüler oder Saugroboter, erreichst du über einen
@@ -179,36 +251,34 @@
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2>Preis</h2>
-    <p>
-      <strong>Vier Tage kostenlos, danach CHF 8.– einmalig.</strong> Ein
-      Abonnement wäre unehrlich: Die App kostet im Betrieb nichts, also gäbe es
-      für eine monatliche Rechnung keinen Gegenwert. Der Kauf gilt für alle
-      deine Geräte mit derselben Apple-ID und lässt sich wiederherstellen.
-    </p>
-    <p class="note">
-      Lumen Circle ist noch nicht im App Store. Diese Seite beschreibt den Stand
-      der Entwicklung. Sobald die App eingereicht und freigegeben ist, steht
-      der Link hier.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Datenschutz in einem Satz</h2>
-    <p>
-      Was Lumen Circle über dein Zuhause weiss, bleibt auf deinem Gerät. Server
-      gibt es keine, ausgewertet wird nichts. Das Gerät verlassen nur drei
-      Dinge: die grobe Position, die Apples Wetterdienst für die Vorhersage
-      braucht, der Kauf über den App Store, und die Modellkennung einer Lampe,
-      etwa „LCT015“, wenn die App ihr Verbrauchsprofil aus der offenen
-      Powercalc-Bibliothek holt. Kein Name, kein Ort, keine Angabe, wie viele
-      du davon hast.
-      <a href="datenschutz.html">Die ausführliche Fassung.</a>
-    </p>
+<section class="section" id="preis" aria-labelledby="preis-titel">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Preis</p>
+      <h2 id="preis-titel">CHF 8 im Jahr.</h2>
+      <p class="muted">
+        Die ersten vier Tage kostenlos, mit allem drin. Der Kauf gilt für alle
+        Geräte mit derselben Apple-ID und lässt sich wiederherstellen. Kündbar
+        in den Apple-Einstellungen, wie jedes Abo dort.
+      </p>
+      <p class="small">
+        Lumen Circle ist noch nicht im App Store. Diese Seite beschreibt den
+        Stand der Entwicklung.
+      </p>
+    </div>
+    <div>
+      <p class="eyebrow">Datenschutz</p>
+      <h2>Bleibt auf dem Gerät.</h2>
+      <p class="muted">
+        Server gibt es keine, ausgewertet wird nichts. Das Gerät verlassen
+        nur drei Dinge: die grobe Position für Apples Wetterdienst, der Kauf
+        über den App Store, und die Modellkennung einer Lampe, etwa
+        „LCT015“, wenn die App ihr Verbrauchsprofil aus der offenen
+        Powercalc-Bibliothek holt. Kein Name, kein Ort, keine Angabe, wie
+        viele du davon hast.
+        <a href="datenschutz.html">Die ausführliche Fassung.</a>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -216,13 +286,13 @@
 
 <footer>
   <div class="wrap">
-    <nav>
+    <nav aria-label="Rechtliches">
       <a href="datenschutz.html">Datenschutz</a>
       <a href="impressum.html">Impressum</a>
       <a href="mailto:hallo@lumencircle.ch">Kontakt</a>
     </nav>
-    <p>Lumen Circle ist ein unabhängiges Produkt und steht in keiner Verbindung zu Apple Inc.
-       Apple, HomeKit, iPhone, iPad und Apple Watch sind Marken von Apple Inc.</p>
+    <p>Lumen Circle ist ein unabhängiges Produkt und steht in keiner Verbindung zu Apple Inc. oder Signify.
+       Apple, HomeKit, iPhone, iPad und Apple Watch sind Marken von Apple Inc. Philips Hue ist eine Marke von Signify.</p>
   </div>
 </footer>
 

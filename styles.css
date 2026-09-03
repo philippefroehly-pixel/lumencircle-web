@@ -1,141 +1,237 @@
-/* Die Farbwelt der App, damit die Seite und das Produkt dasselbe sind.
-   Werte aus AmbientTheme.auraDay — nicht neu erfunden. */
+/* Lumen Circle — lumencircle.ch
+   Die Seite sieht aus wie das Produkt. Farben aus AmbientPalette.aurora und
+   der Bildmarke; nichts davon ist für die Seite erfunden. Die Schrift folgt
+   der App: dünne, grosse Ziffern und Titel, ruhiger Lauftext. */
+
 :root {
   --base: #0e0a1c;
+  --ink: #140d28;
   --wash: #2a1250;
-  --surface: rgba(255, 255, 255, 0.06);
-  --rule: rgba(255, 255, 255, 0.13);
   --text: #f4efff;
   --text-2: #bcaae0;
-  --text-3: #8574b0;
+  --text-3: #a293cc;
   --signal: #c77dff;
-  --warm: #ffb86b;
-  --measure: 34rem;
+  --amber: #ffb86b;
+  --rose: #f2789f;
+  --violet: #a97bff;
+  --arc: linear-gradient(135deg, var(--amber), var(--rose) 42%, var(--violet));
+  --rule: rgba(255, 255, 255, 0.12);
+  --surface: rgba(255, 255, 255, 0.045);
+  --measure: 36rem;
+  --display: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-device: 26px;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
   background: var(--base);
   color: var(--text);
-  font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font: 400 17px/1.6 var(--body);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a { color: var(--signal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:hover { color: var(--warm); }
+a:hover { color: var(--amber); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
 
-.wrap { width: min(100% - 2.5rem, 62rem); margin-inline: auto; }
-.narrow { max-width: var(--measure); }
+img, video { max-width: 100%; height: auto; display: block; }
 
-/* Kopf */
+.wrap { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+p { max-width: var(--measure); }
 
-header {
-  padding: 1.6rem 0;
-  position: sticky;
-  top: 0;
-  background: color-mix(in oklab, var(--base) 88%, transparent);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule);
-  z-index: 10;
+/* Typografie ------------------------------------------------------------- */
+
+h1, h2, .display {
+  font-family: var(--display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.7rem, 7vw, 4.6rem); line-height: 1.02; }
+h2 { font-size: clamp(1.8rem, 3.8vw, 2.5rem); line-height: 1.12; margin-bottom: 1.2rem; }
+h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0 0.35rem; letter-spacing: 0; }
+
+.eyebrow {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 0 0 1rem;
 }
 
-.brand { display: flex; align-items: center; gap: 0.7rem; font-size: 1.15rem; letter-spacing: 0.01em; }
+.lede { font-size: 1.25rem; line-height: 1.5; color: var(--text-2); margin: 1.2rem 0 1.8rem; }
+.muted { color: var(--text-2); }
+.small { font-size: 0.92rem; color: var(--text-3); }
+
+/* Kopf ------------------------------------------------------------------- */
+
+.top {
+  position: sticky; top: 0; z-index: 10;
+  padding: 1.1rem 0;
+  background: color-mix(in oklab, var(--base) 86%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+.brand .mark { width: 24px; height: 24px; flex: none; }
+/* Rechtstexte zeichnen den Ring noch per CSS — soll weiter funktionieren. */
 .brand .ring {
   width: 22px; height: 22px; border-radius: 50%;
   border: 3px solid var(--signal);
-  border-right-color: var(--warm);
+  border-right-color: var(--amber);
   border-bottom-color: transparent;
   transform: rotate(-35deg);
 }
+.top nav { display: flex; gap: 1.3rem; font-size: 0.95rem; }
+.top nav a { color: var(--text-2); text-decoration: none; }
+.top nav a:hover { color: var(--text); }
+@media (max-width: 30rem) { .top nav { display: none; } }
 
-/* Aufmacher */
+/* Aufmacher -------------------------------------------------------------- */
 
 .hero {
+  position: relative;
+  padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 5rem);
+  overflow: clip;
+}
+.hero .wrap {
   display: grid;
+  gap: 2.5rem;
+  align-items: center;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  padding: 4.5rem 0 3rem;
-  background:
-    radial-gradient(60rem 40rem at 12% -10%, rgba(199, 125, 255, 0.20), transparent 60%),
-    radial-gradient(50rem 34rem at 92% 30%, rgba(201, 167, 255, 0.10), transparent 60%);
+}
+@media (min-width: 58rem) {
+  .hero .wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 4rem; }
 }
 
-@media (min-width: 56rem) {
-  .hero { grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 4rem; }
+/* Der grosse Ring: das Bedienelement der App als Licht hinter dem Aufmacher.
+   Er dreht sich langsam — ein Regler mit Weg nach oben, kein Zierrat. Wer
+   Bewegung abgeschaltet hat, bekommt ihn still. */
+.hero-ring {
+  position: absolute;
+  right: -12vw; top: -6rem;
+  width: clamp(26rem, 52vw, 44rem);
+  aspect-ratio: 1;
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+  animation: turn 90s linear infinite;
 }
+@keyframes turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hero-ring { animation: none; } }
+.hero .wrap { position: relative; z-index: 1; }
 
-h1 {
-  font-size: clamp(2.3rem, 6vw, 3.6rem);
-  line-height: 1.08;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  margin: 0 0 1.1rem;
-}
-
-.lede { font-size: 1.2rem; color: var(--text-2); margin: 0 0 1.8rem; }
-
-.price-line {
-  display: inline-flex; align-items: baseline; gap: 0.6rem;
-  padding: 0.65rem 1.2rem;
+.price {
+  display: inline-flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap;
+  padding: 0.7rem 1.2rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
   background: var(--surface);
+  margin-bottom: 1rem;
 }
-.price-line strong { font-size: 1.15rem; font-weight: 500; }
-/* --text-3 kam auf 2.95:1 gegen den Grund — durchgefallen. Ausgerechnet an
-   der Zeile, die Preis und Testphase nennt: die eine Stelle, an der ein
-   schwaches Grau bares Geld kostet. --text-2 liegt bei 7.3:1. */
-.price-line span { color: var(--text-2); font-size: 0.95rem; }
+.price strong { font-family: var(--display); font-weight: 400; font-size: 1.25rem; letter-spacing: -0.01em; }
+.price span { color: var(--text-2); font-size: 0.95rem; }
 
-.shot img, .shot video {
+/* Gerätebilder ------------------------------------------------------------
+   Das Bild bekommt seine Breite vom Behälter, die Höhe rechnet der Browser
+   aus dem Seitenverhältnis. Vorher blieb die Höhe aus dem HTML stehen,
+   während die Breite schrumpfte — das war das Verzogene. */
+.device { margin-inline: auto; width: 100%; }
+.device.phone { max-width: 300px; }
+.device.tablet { max-width: 540px; }
+.device img, .device video {
   width: 100%;
-  border-radius: 34px;
-  border: 1px solid var(--rule);
-  display: block;
+  height: auto;
+  border-radius: var(--radius-device);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.6);
 }
+.device.tablet img { border-radius: 18px; }
 
-/* Abschnitte */
+/* Abschnitte ------------------------------------------------------------- */
 
-section { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
+.section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+.section + .section { border-top: 1px solid var(--rule); }
 
-h2 {
-  font-size: clamp(1.5rem, 3.4vw, 2rem);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  margin: 0 0 1.6rem;
+.two { display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; } }
+.two .device { justify-self: center; }
+
+/* Drei Geräte: die Struktur der App, nicht der Seite. */
+.worlds { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-top: 2rem; }
+@media (min-width: 52rem) { .worlds { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+.world { padding-top: 1.2rem; position: relative; }
+.world::before {
+  content: ""; position: absolute; left: 0; top: 0;
+  width: 3.5rem; height: 2px; background: var(--arc); border-radius: 2px;
 }
-
-h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 0.4rem; }
-
-.grid { display: grid; gap: 1.6rem; grid-template-columns: 1fr; }
-@media (min-width: 44rem) { .grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 66rem) { .grid.three { grid-template-columns: repeat(3, 1fr); } }
-
-.card {
-  padding: 1.4rem 1.5rem;
-  border: 1px solid var(--rule);
-  border-radius: 22px;
-  background: var(--surface);
+.world .eyebrow { margin-bottom: 0.5rem; }
+/* Ein Fenster je Gerät, gleiches Format für alle drei — gezeigt wird der obere
+   Teil des Bildschirms: Uhr, Ringe, das, was man von weitem liest. */
+.world .shot {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--ink);
+  margin-bottom: 1.4rem;
 }
-.card p { color: var(--text-2); margin: 0; }
+.world .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 0; border: 0; box-shadow: none; }
+.world .shot-ring { display: grid; place-items: center; background: radial-gradient(60% 60% at 50% 45%, rgba(199,125,255,0.18), transparent 70%), var(--ink); }
+.world .shot-ring svg { width: 58%; height: auto; aspect-ratio: 1; }
+.world h3 { font-family: var(--display); font-weight: 400; font-size: 1.5rem; letter-spacing: -0.01em; }
+.world p { color: var(--text-2); margin: 0.5rem 0 0; }
 
-p { max-width: var(--measure); }
-.wide p { max-width: none; }
-
-ul.plain { margin: 0; padding-left: 1.15rem; color: var(--text-2); }
-ul.plain li { margin-bottom: 0.5rem; }
+/* Stichpunkte, die man überfliegt. */
+.points { list-style: none; margin: 1.4rem 0 0; padding: 0; max-width: var(--measure); }
+.points li { position: relative; padding-left: 1.4rem; margin-bottom: 0.7rem; color: var(--text-2); }
+.points li::before {
+  content: ""; position: absolute; left: 0; top: 0.72em;
+  width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--arc);
+}
+.points strong { color: var(--text); font-weight: 600; }
 
 .note {
-  border-left: 2px solid var(--warm);
+  border-left: 2px solid var(--amber);
   padding-left: 1rem;
   color: var(--text-2);
+  margin-top: 1.4rem;
 }
+
+/* Funktionen als Begriff → Erklärung. */
+.features { display: grid; gap: 1.6rem 3rem; grid-template-columns: 1fr; margin: 2rem 0 0; }
+@media (min-width: 52rem) { .features { grid-template-columns: 1fr 1fr; } }
+.features div { border-top: 1px solid var(--rule); padding-top: 1rem; }
+.features dt { font-weight: 600; margin: 0 0 0.3rem; }
+.features dd { margin: 0; color: var(--text-2); }
+
+/* Einrichten: eine echte Reihenfolge, deshalb Ziffern. */
+.steps { list-style: none; counter-reset: step; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.6rem; max-width: 44rem; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; align-items: start; }
+.steps li::before {
+  content: counter(step);
+  font-family: var(--display); font-weight: 200; font-size: 3rem; line-height: 1;
+  color: var(--signal);
+  font-variant-numeric: tabular-nums;
+}
+.steps p { margin: 0.35rem 0 0; color: var(--text-2); }
+
+.split { display: grid; gap: 3rem; grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .split { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+
+/* Fuss ------------------------------------------------------------------- */
 
 footer {
   padding: 2.5rem 0 3.5rem;
@@ -144,10 +240,12 @@ footer {
   font-size: 0.92rem;
 }
 footer nav { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+footer p { max-width: none; }
 
-/* Rechtstexte */
+/* Rechtstexte ------------------------------------------------------------ */
 
-.legal h2 { margin-top: 2.4rem; }
+.legal h1 { font-size: clamp(2rem, 5vw, 2.6rem); }
+.legal h2 { font-size: 1.35rem; margin-top: 2.4rem; }
 .legal p, .legal li { color: var(--text-2); }
 .legal dt { font-weight: 600; color: var(--text); margin-top: 1rem; }
 .legal dd { margin: 0.2rem 0 0; color: var(--text-2); }
