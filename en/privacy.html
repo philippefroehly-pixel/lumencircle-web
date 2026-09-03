@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Lumen Circle</title>
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="de" href="https://lumencircle.ch/datenschutz.html">
+<link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/datenschutz.html">
+<link rel="canonical" href="https://lumencircle.ch/en/privacy.html">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="ring" aria-hidden="true"></span>
+      <span>Lumen Circle</span>
+    </a>
+    <nav aria-label="Language">
+      <a class="lang" href="../datenschutz.html" hreflang="de" lang="de">DE</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap legal" style="padding:3rem 0">
+  <h1>Privacy Policy</h1>
+  <p><strong>Lumen Circle has no servers.</strong> What the app knows about your
+     home is stored on your device and stays there. You need no account, you
+     never sign in anywhere, and nothing is analysed.</p>
+
+  <h2>What data the app needs</h2>
+  <dl>
+    <dt>Home (HomeKit)</dt>
+    <dd>Rooms, devices, names, scenes and sensor readings. The app reads them
+        straight from HomeKit and writes switching commands back to it. None of
+        this leaves the device.</dd>
+
+    <dt>Location — weather</dt>
+    <dd>Apple’s weather service (WeatherKit) receives your rough position so it
+        can deliver the forecast for your area. It is not used for anything
+        else. If you refuse the permission, only the weather card stays empty;
+        everything else keeps working.</dd>
+
+    <dt>Location — leaving alert</dt>
+    <dd>If you switch the feature on, you set your home location once. That
+        location is stored <em>on the device</em> and never sent anywhere; iOS
+        then watches the zone and wakes the app when you leave it. Out of the
+        box, the feature is off.</dd>
+
+    <dt>Hue Bridge on the home network</dt>
+    <dd>For the energy meter, the app talks directly to your Hue Bridge on the
+        home network, encrypted and with it alone: it checks the bridge’s
+        certificate and accepts no other. The key the bridge hands out after
+        you press its button is stored by the app in the device’s keychain; it
+        does not leave the device. For this, iOS asks once for access to the
+        local network. You can disconnect at any time in Settings.</dd>
+
+    <dt>Consumption profiles — Powercalc</dt>
+    <dd>Hue lamps do not measure their own consumption. For every lamp model
+        the bridge reports, the app fetches a measured profile once from the
+        open library of the Powercalc project (<em>api.powercalc.nl</em>, with
+        the measurement series from GitHub). What goes out is the model
+        identifier as printed on the box, such as “LCT015”, and nothing else:
+        no name, no location, no identifier for your home, and not how many
+        lamps you have. Each model is looked up at most once, and the result
+        stays on the device. Offline, the app works with an estimate and says
+        so. The data is available under the MIT licence.</dd>
+
+    <dt>Microphone — Party mode</dt>
+    <dd>Party mode measures the volume to keep the lights on the beat. Only the
+        level is analysed, directly on the device. No recording is made: the
+        sound is discarded as soon as the number has been read from it.</dd>
+
+    <dt>Notifications</dt>
+    <dd>Threshold, leaving and energy alerts are generated locally on the
+        device. There is no push service and no server of ours behind them.
+        The energy alerts are off out of the box.</dd>
+
+    <dt>Settings</dt>
+    <dd>Palette, thresholds, the order of the tiles, your electricity price,
+        the energy alerts, the home location for the leaving alert and the
+        state of the trial are kept in the app’s local settings.</dd>
+
+    <dt>Shared folder for widgets and complications</dt>
+    <dd>A widget runs for seconds rather than continuously, so it cannot ask
+        HomeKit itself. The app therefore places four files in a folder that
+        only it and its own extensions can read: a <em>snapshot</em> with room
+        names, light states, outdoor temperature and CO₂ value, a
+        <em>measurement history</em> of the last 24 hours for the charts, the
+        <em>readings</em> of the energy meter (hourly for 90 days, daily for
+        five years) and the learned <em>lamp profiles</em>. All of it stays on
+        the device and disappears with the app.</dd>
+
+    <dt>Apple Watch</dt>
+    <dd>The watch app talks to HomeKit itself and keeps its own snapshot on the
+        watch. Nothing of ours travels between phone and watch; iOS mirrors
+        notifications to the wrist on its own.</dd>
+
+    <dt>Shortcuts and Siri</dt>
+    <dd>Rooms and scenes are offered to iOS as options for Shortcuts so that
+        Siri can switch them. What Siri processes of your request depends
+        on Apple’s settings, not ours.</dd>
+
+    <dt>Live Activity on the Lock Screen</dt>
+    <dd>A running room timer appears as a Live Activity. It shows the room name
+        and the remaining time and runs through iOS on the same device.</dd>
+  </dl>
+
+  <h2>Purchase</h2>
+  <p>Unlocking goes through the App Store. Apple handles payment and receipt;
+     the app only learns <em>whether</em> it is unlocked, not who bought it.
+     There is no other payment provider. Apple’s privacy policy governs how
+     Apple handles this data.</p>
+
+  <h2>No tracking</h2>
+  <p>There is no advertising identifier in the app and no library that
+     analyses your behaviour. Crash reports go to no one, and this website
+     sets no cookies. The app never asks for tracking permission, because
+     there is nothing to track.</p>
+
+  <h2>Your rights</h2>
+  <p>No personal data ends up with us. So we can neither give you access to it
+     nor delete anything: there is simply nothing there. Everything the app
+     has stored disappears as soon as you delete it from the device, or when
+     you choose Factory reset in Settings. That also clears the Hue Bridge key
+     from the keychain.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a></p>
+
+  <p style="color:var(--text-3);font-size:.9rem;margin-top:2.5rem">
+     Last updated: September 2026.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="imprint.html">Legal notice</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

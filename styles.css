@@ -96,7 +96,17 @@ h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0
 .top nav { display: flex; gap: 1.3rem; font-size: 0.95rem; }
 .top nav a { color: var(--text-2); text-decoration: none; }
 .top nav a:hover { color: var(--text); }
-@media (max-width: 30rem) { .top nav { display: none; } }
+.top nav .lang {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--text-2);
+}
+.top nav .lang:hover { color: var(--text); border-color: var(--text-3); }
+/* Auf dem Handy bleibt vom nav nur der Sprachwechsel. */
+@media (max-width: 30rem) { .top nav a:not(.lang) { display: none; } }
 
 /* Aufmacher -------------------------------------------------------------- */
 
