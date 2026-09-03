@@ -1,0 +1,35 @@
+# Veroeffentlicht die Seite bei Hostinger, sobald auf main gepusht wird.
+#
+# Damit das laeuft, braucht das Repository drei Geheimnisse
+# (Settings -> Secrets and variables -> Actions):
+#
+#   FTP_HOST      z. B. ftp.smartdeck.ch
+#   FTP_USER      der FTP-Benutzer aus dem hPanel
+#   FTP_PASSWORD  dessen Passwort
+#
+# Der Zielordner bei Hostinger heisst ueblicherweise public_html.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ftp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Auf Hostinger hochladen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/
+          # Was nicht zur Seite gehoert, hat auf dem Webspace nichts verloren.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/README.md
