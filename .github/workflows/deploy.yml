@@ -1,17 +1,34 @@
 # Veroeffentlicht die Seite bei Hostinger, sobald auf main gepusht wird.
 #
-# Damit das laeuft, braucht das Repository drei Geheimnisse
-# (Settings -> Secrets and variables -> Actions -> New repository secret):
+# Zwei Wege, und der Ablauf nimmt von selbst den besseren, der eingerichtet ist.
 #
+# ── SSH (empfohlen, ab Business-Tarif) ────────────────────────────────────────
+# Im hPanel unter Erweitert -> SSH-Zugang aktivieren; dort stehen Host, Port
+# und Benutzername. Auf dem eigenen Rechner ein Schluesselpaar erzeugen
+#
+#     ssh-keygen -t ed25519 -C "github-deploy smartdeck" -f ~/.ssh/smartdeck_deploy
+#
+# den *oeffentlichen* Teil (~/.ssh/smartdeck_deploy.pub) im hPanel unter
+# "SSH-Schluessel" hinterlegen und den *privaten* Teil komplett (mit den
+# BEGIN/END-Zeilen) als Geheimnis SSH_KEY ablegen. Dazu:
+#
+#   SSH_HOST      z. B. 145.14.x.x oder de-fra1-web.hostinger.com
+#   SSH_USER      der SSH-Benutzer aus dem hPanel (kein root)
+#   SSH_PORT      meist 65002 bei Hostinger, nicht 22
+#   SSH_KEY       der private Schluessel
+#   SSH_PATH      optional, Vorgabe public_html
+#
+# Vorteile gegenueber FTP: verschluesselt, Schluessel statt Passwort, und rsync
+# laedt nur, was sich geaendert hat — statt bei jedem Push das ganze Video.
+#
+# ── FTP (Notnagel, laeuft auf jedem Tarif) ────────────────────────────────────
 #   FTP_HOST      der Server aus dem hPanel, z. B. ftp.smartdeck.ch
 #   FTP_USER      der FTP-Benutzer
 #   FTP_PASSWORD  dessen Passwort
 #
-# Der Zielordner bei Hostinger heisst ueblicherweise public_html.
-#
-# Solange die drei fehlen, laeuft der Ablauf trotzdem durch und meldet nur,
-# dass nichts hochgeladen wurde. Ein rotes Kreuz an jedem Push waere ein
-# Fehlalarm: Nicht der Code ist kaputt, es fehlt eine Zugangsdatei.
+# Fehlt beides, laeuft der Ablauf trotzdem gruen durch und sagt nur, dass
+# nichts hochzuladen war. Ein rotes Kreuz an jedem Push waere ein Fehlalarm:
+# Nicht der Code ist kaputt, es fehlt eine Zugangsdatei.
 name: Deploy
 
 on:
@@ -20,35 +37,74 @@ on:
   workflow_dispatch:
 
 jobs:
-  ftp:
+  publish:
     name: Webseite smartdeck.ch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
-      - name: Sind die Zugangsdaten hinterlegt?
-        id: gate
+      - name: Welcher Weg ist eingerichtet?
+        id: route
         env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          if [ -n "$FTP_HOST" ] && [ -n "$FTP_USER" ] && [ -n "$FTP_PASSWORD" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
+          if [ -n "$SSH_HOST" ] && [ -n "$SSH_USER" ] && [ -n "$SSH_KEY" ]; then
+            echo "via=ssh" >> "$GITHUB_OUTPUT"
+          elif [ -n "$FTP_HOST" ] && [ -n "$FTP_USER" ] && [ -n "$FTP_PASSWORD" ]; then
+            echo "via=ftp" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Ueber FTP hochgeladen::SSH waere sicherer und schneller. Siehe Kopf von .github/workflows/deploy.yml."
           else
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::notice title=Nichts hochgeladen::Die Geheimnisse FTP_HOST, FTP_USER und FTP_PASSWORD fehlen. Unter Settings -> Secrets and variables -> Actions hinterlegen, dann laeuft der Upload beim naechsten Push."
+            echo "via=none" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Nichts hochgeladen::Weder SSH- noch FTP-Zugangsdaten hinterlegt. Unter Settings -> Secrets and variables -> Actions eintragen, dann laeuft der Upload beim naechsten Push."
           fi
 
+      # ── SSH ────────────────────────────────────────────────────────────────
+      - name: Schluessel bereitlegen
+        if: steps.route.outputs.via == 'ssh'
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          # Den Fingerabdruck des Servers einmal holen, statt die Pruefung
+          # abzuschalten. `StrictHostKeyChecking=no` waere bequemer und genau
+          # die Luecke, gegen die SSH gebaut ist.
+          ssh-keyscan -p "${SSH_PORT:-65002}" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Mit rsync hochladen
+        if: steps.route.outputs.via == 'ssh'
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_PATH: ${{ secrets.SSH_PATH }}
+        run: |
+          rsync -az --delete \
+            --exclude '.git' --exclude '.github' --exclude 'README.md' \
+            -e "ssh -i ~/.ssh/id_deploy -p ${SSH_PORT:-65002}" \
+            ./ "$SSH_USER@$SSH_HOST:${SSH_PATH:-public_html}/"
+
+      - name: Schluessel wieder entfernen
+        if: always() && steps.route.outputs.via == 'ssh'
+        run: rm -f ~/.ssh/id_deploy
+
+      # ── FTP ────────────────────────────────────────────────────────────────
       - name: Auf Hostinger hochladen
-        if: steps.gate.outputs.ready == 'true'
+        if: steps.route.outputs.via == 'ftp'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: public_html/
-          # Was nicht zur Seite gehoert, hat auf dem Webspace nichts verloren.
           exclude: |
             **/.git*
             **/.git*/**
