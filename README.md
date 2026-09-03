@@ -1,6 +1,6 @@
-# smartdeck.ch
+# lumencircle.ch
 
-Die Webseite zu SmartDeck — eine statische Seite, kein Baukasten, kein
+Die Webseite zu Lumen Circle — eine statische Seite, kein Baukasten, kein
 Framework. Drei HTML-Dateien, ein Stylesheet, zwei Medien.
 
 ## Aufbau
@@ -32,7 +32,7 @@ Alternativ kann Hostinger das Repository auch selbst abholen
 ## Noch zu tun
 
 - Impressum ausfuellen (Name, Adresse, ggf. UID).
-- `hallo@smartdeck.ch` als Postfach einrichten — die Adresse steht auf der
+- `hallo@lumencircle.ch` als Postfach einrichten — die Adresse steht auf der
   Seite und in der Datenschutzerklaerung.
 - Sobald die App im App Store ist: Link auf der Startseite ergaenzen und den
   Hinweis "noch nicht im App Store" entfernen.

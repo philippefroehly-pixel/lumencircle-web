@@ -6,9 +6,9 @@
 # Im hPanel unter Erweitert -> SSH-Zugang aktivieren; dort stehen Host, Port
 # und Benutzername. Auf dem eigenen Rechner ein Schluesselpaar erzeugen
 #
-#     ssh-keygen -t ed25519 -C "github-deploy smartdeck" -f ~/.ssh/smartdeck_deploy
+#     ssh-keygen -t ed25519 -C "github-deploy lumencircle" -f ~/.ssh/lumencircle_deploy
 #
-# den *oeffentlichen* Teil (~/.ssh/smartdeck_deploy.pub) im hPanel unter
+# den *oeffentlichen* Teil (~/.ssh/lumencircle_deploy.pub) im hPanel unter
 # "SSH-Schluessel" hinterlegen und den *privaten* Teil komplett (mit den
 # BEGIN/END-Zeilen) als Geheimnis SSH_KEY ablegen. Dazu:
 #
@@ -22,7 +22,7 @@
 # laedt nur, was sich geaendert hat — statt bei jedem Push das ganze Video.
 #
 # ── FTP (Notnagel, laeuft auf jedem Tarif) ────────────────────────────────────
-#   FTP_HOST      der Server aus dem hPanel, z. B. ftp.smartdeck.ch
+#   FTP_HOST      der Server aus dem hPanel, z. B. ftp.lumencircle.ch
 #   FTP_USER      der FTP-Benutzer
 #   FTP_PASSWORD  dessen Passwort
 #
@@ -38,7 +38,7 @@ on:
 
 jobs:
   publish:
-    name: Webseite smartdeck.ch
+    name: Webseite lumencircle.ch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
