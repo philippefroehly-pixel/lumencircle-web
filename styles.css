@@ -87,7 +87,10 @@ h1 {
   background: var(--surface);
 }
 .price-line strong { font-size: 1.15rem; font-weight: 500; }
-.price-line span { color: var(--text-3); font-size: 0.95rem; }
+/* --text-3 kam auf 2.95:1 gegen den Grund — durchgefallen. Ausgerechnet an
+   der Zeile, die Preis und Testphase nennt: die eine Stelle, an der ein
+   schwaches Grau bares Geld kostet. --text-2 liegt bei 7.3:1. */
+.price-line span { color: var(--text-2); font-size: 0.95rem; }
 
 .shot img, .shot video {
   width: 100%;

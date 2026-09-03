@@ -49,8 +49,31 @@
         keinen Push-Dienst und keinen Server dahinter.</dd>
 
     <dt>Einstellungen</dt>
-    <dd>Farbwelt, Grenzwerte, Reihenfolge der Kacheln und der Stand der Testphase
-        liegen in den lokalen Einstellungen der App.</dd>
+    <dd>Farbwelt, Grenzwerte, Reihenfolge der Kacheln, der Wohnort für die
+        Weggeh-Meldung und der Stand der Testphase liegen in den lokalen
+        Einstellungen der App.</dd>
+
+    <dt>Gemeinsamer Ordner für Widgets und Komplikationen</dt>
+    <dd>Ein Widget kann HomeKit nicht selbst fragen — es läuft Sekunden, nicht
+        dauerhaft. Die App legt deshalb zwei Dateien in einem Ordner ab, den nur
+        sie und ihre eigenen Erweiterungen lesen können: einen <em>Abzug</em> mit
+        Raumnamen, Lichtzuständen, Aussentemperatur und CO₂-Wert, und einen
+        <em>Messverlauf</em> der letzten 24 Stunden für die Kurven. Beides bleibt
+        auf dem Gerät und wird beim Löschen der App mitgelöscht.</dd>
+
+    <dt>Apple Watch</dt>
+    <dd>Die Uhr-App spricht selbst mit HomeKit und legt ihren eigenen Abzug auf
+        der Uhr ab. Zwischen Telefon und Uhr werden keine Daten von uns
+        übertragen; Mitteilungen spiegelt iOS von sich aus ans Handgelenk.</dd>
+
+    <dt>Kurzbefehle und Siri</dt>
+    <dd>Räume und Szenen werden iOS als Auswahl für Kurzbefehle angeboten, damit
+        Siri sie schalten kann. Was Siri von deiner Anfrage verarbeitet, richtet
+        sich nach Apples Einstellungen — nicht nach unseren.</dd>
+
+    <dt>Live Activity auf dem Sperrbildschirm</dt>
+    <dd>Ein laufender Raum-Timer erscheint als Live Activity. Sie zeigt Raumname
+        und Restzeit und läuft über iOS auf demselben Gerät.</dd>
   </dl>
 
   <h2>Kauf</h2>
