@@ -18,35 +18,38 @@
 
 <main class="wrap legal" style="padding:3rem 0">
   <h1 style="font-size:2rem">Datenschutz</h1>
-  <p><strong>SmartDeck hat keine Server.</strong> Es gibt kein Konto, keine Anmeldung
-     und keine Analyse. Was die App über dein Zuhause weiss, steht auf deinem Gerät
-     und bleibt dort.</p>
+  <p><strong>SmartDeck hat keine Server.</strong> Was die App über dein Zuhause
+     weiss, steht auf deinem Gerät und bleibt dort. Ein Konto brauchst du nicht,
+     anmelden musst du dich nirgends, und ausgewertet wird nichts.</p>
 
-  <h2>Was die App verwendet</h2>
+  <h2>Welche Daten die App braucht</h2>
   <dl>
     <dt>Zuhause (HomeKit)</dt>
     <dd>Räume, Geräte, Namen, Szenen und Messwerte. Die App liest sie direkt von
-        HomeKit und schreibt Schaltbefehle zurück. Nichts davon verlässt das Gerät.</dd>
+        HomeKit und schreibt Schaltbefehle dorthin zurück. Das Gerät verlässt
+        davon nichts.</dd>
 
     <dt>Standort — Wetter</dt>
-    <dd>Für die Wetteranzeige geht die grobe Position an Apples Wetterdienst
-        (WeatherKit). Nur dafür. Ohne die Berechtigung bleibt die Wetterkarte leer,
-        alles andere funktioniert.</dd>
+    <dd>Apples Wetterdienst (WeatherKit) bekommt die grobe Position, um die
+        Vorhersage für deinen Ort zu liefern. Für etwas anderes wird sie nicht
+        benutzt. Verweigerst du die Berechtigung, bleibt nur die Wetterkarte
+        leer; alles übrige arbeitet weiter.</dd>
 
     <dt>Standort — beim Weggehen melden</dt>
-    <dd>Wer die Funktion einschaltet, legt einmal seinen Wohnort fest. Er wird
-        <em>auf dem Gerät</em> gespeichert; iOS überwacht die Zone und weckt die App,
-        wenn du sie verlässt. Der Ort wird nirgendwohin gesendet. Die Funktion ist
-        ab Werk aus.</dd>
+    <dd>Wer die Funktion einschaltet, legt einmal seinen Wohnort fest. Dieser
+        Ort wird <em>auf dem Gerät</em> gespeichert und nirgendwohin gesendet;
+        iOS überwacht daraufhin die Zone und weckt die App, wenn du sie
+        verlässt. Ab Werk ist die Funktion aus.</dd>
 
     <dt>Mikrofon — Party-Modus</dt>
-    <dd>Der Party-Modus misst die Lautstärke, um das Licht auf den Takt zu bringen.
-        Es wird nur der Pegel ausgewertet, direkt auf dem Gerät. Es wird nichts
-        aufgezeichnet, nichts gespeichert und nichts gesendet.</dd>
+    <dd>Der Party-Modus misst die Lautstärke, um das Licht auf den Takt zu
+        bringen. Ausgewertet wird nur der Pegel, direkt auf dem Gerät. Eine
+        Aufnahme entsteht dabei nicht: Der Ton wird verworfen, sobald die Zahl
+        daraus abgelesen ist.</dd>
 
     <dt>Mitteilungen</dt>
-    <dd>Grenzwert- und Weggeh-Meldungen werden lokal auf dem Gerät erzeugt. Es gibt
-        keinen Push-Dienst und keinen Server dahinter.</dd>
+    <dd>Grenzwert- und Weggeh-Meldungen entstehen lokal auf dem Gerät. Hinter
+        ihnen steht kein Push-Dienst und kein Server von uns.</dd>
 
     <dt>Einstellungen</dt>
     <dd>Farbwelt, Grenzwerte, Reihenfolge der Kacheln, der Wohnort für die
@@ -54,22 +57,22 @@
         Einstellungen der App.</dd>
 
     <dt>Gemeinsamer Ordner für Widgets und Komplikationen</dt>
-    <dd>Ein Widget kann HomeKit nicht selbst fragen — es läuft Sekunden, nicht
-        dauerhaft. Die App legt deshalb zwei Dateien in einem Ordner ab, den nur
-        sie und ihre eigenen Erweiterungen lesen können: einen <em>Abzug</em> mit
-        Raumnamen, Lichtzuständen, Aussentemperatur und CO₂-Wert, und einen
-        <em>Messverlauf</em> der letzten 24 Stunden für die Kurven. Beides bleibt
-        auf dem Gerät und wird beim Löschen der App mitgelöscht.</dd>
+    <dd>Ein Widget läuft Sekunden statt dauerhaft und kann HomeKit deshalb
+        nicht selbst fragen. Die App legt darum zwei Dateien in einem Ordner ab,
+        den nur sie und ihre eigenen Erweiterungen lesen können: einen
+        <em>Abzug</em> mit Raumnamen, Lichtzuständen, Aussentemperatur und
+        CO₂-Wert sowie einen <em>Messverlauf</em> der letzten 24 Stunden für die
+        Kurven. Beides bleibt auf dem Gerät und verschwindet mit der App.</dd>
 
     <dt>Apple Watch</dt>
     <dd>Die Uhr-App spricht selbst mit HomeKit und legt ihren eigenen Abzug auf
-        der Uhr ab. Zwischen Telefon und Uhr werden keine Daten von uns
-        übertragen; Mitteilungen spiegelt iOS von sich aus ans Handgelenk.</dd>
+        der Uhr ab. Von uns wandern zwischen Telefon und Uhr keine Daten;
+        Mitteilungen spiegelt iOS von sich aus ans Handgelenk.</dd>
 
     <dt>Kurzbefehle und Siri</dt>
     <dd>Räume und Szenen werden iOS als Auswahl für Kurzbefehle angeboten, damit
         Siri sie schalten kann. Was Siri von deiner Anfrage verarbeitet, richtet
-        sich nach Apples Einstellungen — nicht nach unseren.</dd>
+        sich nach Apples Einstellungen, nicht nach unseren.</dd>
 
     <dt>Live Activity auf dem Sperrbildschirm</dt>
     <dd>Ein laufender Raum-Timer erscheint als Live Activity. Sie zeigt Raumname
@@ -77,20 +80,22 @@
   </dl>
 
   <h2>Kauf</h2>
-  <p>Die Freischaltung läuft über den App Store. Apple wickelt Zahlung und Beleg ab;
-     die App erfährt davon nur, <em>ob</em> freigeschaltet ist — nicht, wer gekauft hat.
-     Es gibt keinen Zahlungsdienstleister ausser Apple. Für Apples Umgang mit diesen
-     Daten gilt Apples Datenschutzrichtlinie.</p>
+  <p>Die Freischaltung läuft über den App Store. Zahlung und Beleg wickelt Apple
+     ab; die App erfährt davon nur, <em>ob</em> freigeschaltet ist, nicht wer
+     gekauft hat. Einen weiteren Zahlungsdienstleister gibt es nicht. Für Apples
+     Umgang mit diesen Daten gilt Apples Datenschutzrichtlinie.</p>
 
   <h2>Kein Tracking</h2>
-  <p>Keine Werbe-Kennungen, keine Analyse-Bibliotheken, keine Absturzberichte an
-     Dritte, keine Cookies auf dieser Seite. Die App fragt nicht nach
-     Tracking-Erlaubnis, weil sie nicht trackt.</p>
+  <p>In der App steckt keine Werbe-Kennung und keine Bibliothek, die dein
+     Verhalten auswertet. Absturzberichte gehen an niemanden, und diese Seite
+     setzt keine Cookies. Nach einer Tracking-Erlaubnis fragt die App nicht,
+     weil es nichts zu verfolgen gibt.</p>
 
   <h2>Deine Rechte</h2>
-  <p>Da keine personenbezogenen Daten bei uns anfallen, gibt es nichts, worüber wir
-     Auskunft geben oder was wir löschen könnten. Alles, was die App gespeichert hat,
-     verschwindet mit dem Löschen der App vom Gerät.</p>
+  <p>Bei uns fallen keine personenbezogenen Daten an. Deshalb können wir weder
+     Auskunft darüber geben noch etwas löschen: Es liegt schlicht nichts vor.
+     Alles, was die App gespeichert hat, verschwindet, sobald du sie vom Gerät
+     löschst.</p>
 
   <h2>Kontakt</h2>
   <p><a href="mailto:hallo@smartdeck.ch">hallo@smartdeck.ch</a></p>
