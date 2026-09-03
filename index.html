@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lumen Circle — dein Zuhause auf einen Blick</title>
-<meta name="description" content="Lumen Circle macht aus einem iPad an der Wand ein Panel für dein Zuhause: Räume statt Geräte, Licht mit einem Ring, Luft und Temperatur im Blick. Für HomeKit. Vier Tage testen, dann CHF 8 einmalig.">
+<meta name="description" content="Lumen Circle macht aus einem iPad an der Wand ein Panel für dein Zuhause: Räume statt Geräte, Licht mit einem Ring, Luft und Temperatur im Blick — und was das Licht gerade kostet. Für HomeKit und Philips Hue. Vier Tage testen, dann CHF 8 einmalig."
 <meta property="og:title" content="Lumen Circle — dein Zuhause auf einen Blick">
 <meta property="og:description" content="Räume statt Geräte. Licht mit einem Ring. Für HomeKit, auf iPhone, iPad und Apple Watch.">
 <meta property="og:type" content="website">
@@ -31,7 +31,8 @@
       Ein iPad an der Wand wird zum Panel, das man aus zwei Metern liest. Das
       iPhone wird die Fernbedienung dazu. Du siehst Räume statt Gerätelisten,
       regelst das Licht an einem Ring und liest Temperatur und Luft dort ab, wo
-      du ohnehin hinschaust.
+      du ohnehin hinschaust. Und du siehst, was das Licht gerade zieht und was
+      es diesen Monat gekostet hat.
     </p>
     <p class="price-line">
       <strong>CHF 8.–</strong>
@@ -83,6 +84,40 @@
 </section>
 
 <section>
+  <div class="wrap">
+    <h2>Was das Licht kostet</h2>
+    <div class="grid">
+      <div>
+        <p>
+          Hue-Lampen messen ihren Verbrauch nicht. Lumen Circle rechnet ihn
+          trotzdem, und zwar nicht mit einer Formel, sondern mit Kurven, die an
+          echten Lampen gemessen wurden: für jedes Modell, das die Bridge
+          meldet, von einem Prozent bis Vollgas. Eine gedimmte Lampe zieht
+          deutlich weniger, als die Gerade vermuten liesse; bei halber Helligkeit
+          ist es oft nur ein Drittel.
+        </p>
+        <p>
+          Du siehst die Leistung von jetzt, je Raum und gesamt, und was der Tag,
+          die Woche, der Monat kostet: mit deinem Strompreis, auf Wunsch mit
+          Hoch- und Niedertarif. Kommt eine neue Lampe dazu, holt sich die App
+          ihr Profil von selbst.
+        </p>
+        <p class="note">
+          Dafür verbindet sich Lumen Circle einmal mit deiner Hue Bridge; ein
+          Druck auf ihren Knopf genügt. Die Verbrauchskurven stammen aus dem
+          offenen Projekt Powercalc, in dem Menschen ihre Lampen mit
+          Messgeräten vermessen haben.
+        </p>
+      </div>
+      <div class="shot">
+        <img src="assets/strom.png" width="759" height="1650"
+             alt="Der Strom-Bildschirm von Lumen Circle: Strompreis, die Leistung gerade, Verbrauch und Kosten des Monats und darunter die einzelnen Lampen mit ihren gemessenen Profilen.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="wrap wide">
     <h2>Was es sonst noch tut</h2>
     <div class="grid three">
@@ -96,7 +131,7 @@
       </div>
       <div class="card">
         <h3>Bildschirmschoner</h3>
-        <p>Nach etwas mehr als einer Minute ohne Berührung fällt das Panel auf ein ruhiges Bild mit Zeit, Temperatur, Luft und Wetter zurück. So brennt sich nichts ein, und nachts blendet der Bildschirm niemanden.</p>
+        <p>Nach etwas mehr als einer Minute ohne Berührung fällt das Panel auf ein ruhiges Bild zurück: Zeit, Wetter, Temperatur, Luft, und was das Licht gerade zieht und diesen Monat gekostet hat. So brennt sich nichts ein, und nachts blendet der Bildschirm niemanden.</p>
       </div>
       <div class="card">
         <h3>Widgets und Komplikationen</h3>
@@ -110,6 +145,14 @@
         <h3>Grosse Schrift</h3>
         <p>Lumen Circle folgt der Textgrösse aus den iOS-Einstellungen. Ein Panel im Flur wird von allen gelesen, nicht nur von denen mit guten Augen.</p>
       </div>
+      <div class="card">
+        <h3>Meldungen, die du einschaltest</h3>
+        <p>Eine Tagesbilanz am Abend, eine Warnung, wenn ungewöhnlich viel Licht läuft, eine Monatsgrenze in Franken. Alle drei sind ab Werk aus. Eine App, die ungefragt über Geld schreibt, wäre eine Zumutung.</p>
+      </div>
+      <div class="card">
+        <h3>Kurzbefehle als Kacheln</h3>
+        <p>Der Saugroboter, die Kaffeemaschine, alles ohne HomeKit: Was sich in der Kurzbefehle-App steuern lässt, bekommt eine Kachel in der Szenenleiste. Eine Anleitung in fünf Schritten steht gleich daneben.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -122,9 +165,11 @@
       Loslegen fragt iOS beim ersten Start nach dem Zugriff auf dein Zuhause,
       und damit ist die Einrichtung fertig. Ein Konto brauchst du nicht: Die App
       spricht direkt mit HomeKit, ohne Anmeldung und ohne Dienst dazwischen.
-      Nach Wetter, Mitteilungen, Weggeh-Meldung und Party-Modus fragt iOS
-      später einzeln, jeweils beim ersten Mal. Wer eine davon ablehnt, verliert
-      genau diese Funktion; der Rest arbeitet weiter.
+      Den Stromzähler schaltest du gleich danach frei: Die App findet deine
+      Hue Bridge im Heimnetz, du drückst einmal den Knopf darauf, fertig. Nach
+      Wetter, Mitteilungen, Weggeh-Meldung und Party-Modus fragt iOS später
+      einzeln, jeweils beim ersten Mal. Wer eine davon ablehnt, verliert genau
+      diese Funktion; der Rest arbeitet weiter.
     </p>
     <p class="note">
       Voraussetzung ist ein Zuhause in Apples Home-App. Zubehör ohne HomeKit,
@@ -156,9 +201,12 @@
     <h2>Datenschutz in einem Satz</h2>
     <p>
       Was Lumen Circle über dein Zuhause weiss, bleibt auf deinem Gerät. Server
-      gibt es keine, ausgewertet wird nichts. Das Gerät verlassen nur zwei
+      gibt es keine, ausgewertet wird nichts. Das Gerät verlassen nur drei
       Dinge: die grobe Position, die Apples Wetterdienst für die Vorhersage
-      braucht, und der Kauf über den App Store.
+      braucht, der Kauf über den App Store, und die Modellkennung einer Lampe,
+      etwa „LCT015“, wenn die App ihr Verbrauchsprofil aus der offenen
+      Powercalc-Bibliothek holt. Kein Name, kein Ort, keine Angabe, wie viele
+      du davon hast.
       <a href="datenschutz.html">Die ausführliche Fassung.</a>
     </p>
   </div>

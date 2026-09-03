@@ -41,6 +41,26 @@
         iOS überwacht daraufhin die Zone und weckt die App, wenn du sie
         verlässt. Ab Werk ist die Funktion aus.</dd>
 
+    <dt>Hue Bridge im Heimnetz</dt>
+    <dd>Für den Stromzähler spricht die App im Heimnetz direkt mit deiner Hue
+        Bridge, verschlüsselt und nur mit ihr: Sie prüft das Zertifikat der
+        Bridge und nimmt kein anderes an. Den Schlüssel, den die Bridge nach dem
+        Knopfdruck ausgibt, legt die App im Schlüsselbund des Geräts ab; er
+        verlässt es nicht. iOS fragt dafür einmal nach dem Zugriff auf das
+        lokale Netzwerk. Trennen lässt sich die Verbindung jederzeit in den
+        Einstellungen.</dd>
+
+    <dt>Verbrauchsprofile — Powercalc</dt>
+    <dd>Hue-Lampen messen ihren Verbrauch nicht. Für jedes Lampenmodell, das die
+        Bridge meldet, holt die App einmal ein gemessenes Profil aus der offenen
+        Bibliothek des Projekts Powercalc (<em>api.powercalc.nl</em>, die
+        Messreihen von GitHub). Übertragen wird dabei die Modellkennung, wie sie
+        auf der Verpackung steht, etwa „LCT015“, und sonst nichts: kein Name,
+        kein Ort, keine Kennung deines Zuhauses und nicht, wie viele Lampen du
+        hast. Gefragt wird höchstens einmal je Modell, das Ergebnis bleibt auf
+        dem Gerät. Ohne Netz rechnet die App mit einem Schätzwert und sagt das
+        dazu. Die Daten stehen unter der MIT-Lizenz.</dd>
+
     <dt>Mikrofon — Party-Modus</dt>
     <dd>Der Party-Modus misst die Lautstärke, um das Licht auf den Takt zu
         bringen. Ausgewertet wird nur der Pegel, direkt auf dem Gerät. Eine
@@ -48,21 +68,24 @@
         daraus abgelesen ist.</dd>
 
     <dt>Mitteilungen</dt>
-    <dd>Grenzwert- und Weggeh-Meldungen entstehen lokal auf dem Gerät. Hinter
-        ihnen steht kein Push-Dienst und kein Server von uns.</dd>
+    <dd>Grenzwert-, Weggeh- und Strommeldungen entstehen lokal auf dem Gerät.
+        Hinter ihnen steht kein Push-Dienst und kein Server von uns. Die
+        Strommeldungen sind ab Werk aus.</dd>
 
     <dt>Einstellungen</dt>
-    <dd>Farbwelt, Grenzwerte, Reihenfolge der Kacheln, der Wohnort für die
-        Weggeh-Meldung und der Stand der Testphase liegen in den lokalen
-        Einstellungen der App.</dd>
+    <dd>Farbwelt, Grenzwerte, Reihenfolge der Kacheln, dein Strompreis, die
+        Strommeldungen, der Wohnort für die Weggeh-Meldung und der Stand der
+        Testphase liegen in den lokalen Einstellungen der App.</dd>
 
     <dt>Gemeinsamer Ordner für Widgets und Komplikationen</dt>
     <dd>Ein Widget läuft Sekunden statt dauerhaft und kann HomeKit deshalb
-        nicht selbst fragen. Die App legt darum zwei Dateien in einem Ordner ab,
+        nicht selbst fragen. Die App legt darum vier Dateien in einem Ordner ab,
         den nur sie und ihre eigenen Erweiterungen lesen können: einen
         <em>Abzug</em> mit Raumnamen, Lichtzuständen, Aussentemperatur und
-        CO₂-Wert sowie einen <em>Messverlauf</em> der letzten 24 Stunden für die
-        Kurven. Beides bleibt auf dem Gerät und verschwindet mit der App.</dd>
+        CO₂-Wert, einen <em>Messverlauf</em> der letzten 24 Stunden für die
+        Kurven, die <em>Zählerstände</em> des Stromzählers (je Stunde für 90
+        Tage, je Tag für fünf Jahre) und die gelernten <em>Lampenprofile</em>.
+        Alles bleibt auf dem Gerät und verschwindet mit der App.</dd>
 
     <dt>Apple Watch</dt>
     <dd>Die Uhr-App spricht selbst mit HomeKit und legt ihren eigenen Abzug auf
@@ -95,7 +118,8 @@
   <p>Bei uns fallen keine personenbezogenen Daten an. Deshalb können wir weder
      Auskunft darüber geben noch etwas löschen: Es liegt schlicht nichts vor.
      Alles, was die App gespeichert hat, verschwindet, sobald du sie vom Gerät
-     löschst.</p>
+     löschst, oder wenn du in den Einstellungen die Werkseinstellung wählst.
+     Diese räumt auch den Schlüssel der Hue Bridge aus dem Schlüsselbund.</p>
 
   <h2>Kontakt</h2>
   <p><a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a></p>
