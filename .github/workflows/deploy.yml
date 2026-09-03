@@ -1,13 +1,17 @@
 # Veroeffentlicht die Seite bei Hostinger, sobald auf main gepusht wird.
 #
 # Damit das laeuft, braucht das Repository drei Geheimnisse
-# (Settings -> Secrets and variables -> Actions):
+# (Settings -> Secrets and variables -> Actions -> New repository secret):
 #
-#   FTP_HOST      z. B. ftp.smartdeck.ch
-#   FTP_USER      der FTP-Benutzer aus dem hPanel
+#   FTP_HOST      der Server aus dem hPanel, z. B. ftp.smartdeck.ch
+#   FTP_USER      der FTP-Benutzer
 #   FTP_PASSWORD  dessen Passwort
 #
 # Der Zielordner bei Hostinger heisst ueblicherweise public_html.
+#
+# Solange die drei fehlen, laeuft der Ablauf trotzdem durch und meldet nur,
+# dass nichts hochgeladen wurde. Ein rotes Kreuz an jedem Push waere ein
+# Fehlalarm: Nicht der Code ist kaputt, es fehlt eine Zugangsdatei.
 name: Deploy
 
 on:
@@ -17,11 +21,27 @@ on:
 
 jobs:
   ftp:
+    name: Webseite smartdeck.ch
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
+      - name: Sind die Zugangsdaten hinterlegt?
+        id: gate
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -n "$FTP_HOST" ] && [ -n "$FTP_USER" ] && [ -n "$FTP_PASSWORD" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Nichts hochgeladen::Die Geheimnisse FTP_HOST, FTP_USER und FTP_PASSWORD fehlen. Unter Settings -> Secrets and variables -> Actions hinterlegen, dann laeuft der Upload beim naechsten Push."
+          fi
 
       - name: Auf Hostinger hochladen
+        if: steps.gate.outputs.ready == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
