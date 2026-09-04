@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Lumen Circle</title>
+<meta name="description" content="Help with Lumen Circle: weather, Hue Bridge, leaving alert, subscription. And how to reach the provider.">
+<link rel="alternate" hreflang="de" href="https://lumencircle.ch/support.html">
+<link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/support.html">
+<link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/support.html">
+<link rel="canonical" href="https://lumencircle.ch/en/support.html">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="ring" aria-hidden="true"></span>
+      <span>Lumen Circle</span>
+    </a>
+    <nav aria-label="Language">
+      <a class="lang" href="../support.html" hreflang="de" lang="de">DE</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap legal" style="padding:3rem 0">
+  <h1>Support</h1>
+  <p>Write to <a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a>.
+     A person answers, usually within two working days. Name your device and
+     the iOS version — that saves a follow-up question.</p>
+
+  <h2>The weather stays empty</h2>
+  <p>Lumen Circle gets the weather from Apple and needs your location for it.
+     In the iOS settings under <em>Lumen Circle → Location</em>, check that it
+     says at least <em>While Using the App</em>. On the dashboard, the reason
+     is always shown in place of the weather tile when something is missing.</p>
+
+  <h2>The Hue Bridge is not found</h2>
+  <ul class="points">
+    <li>Bridge and device have to be on the <strong>same Wi-Fi</strong>. A guest network does not count.</li>
+    <li>iOS asks once about the <strong>local network</strong>. If that was declined, it sits under <em>Settings → Lumen Circle → Local Network</em>.</li>
+    <li>After tapping “Connect Bridge” you have 30 seconds to press the <strong>round button</strong> on the Bridge.</li>
+    <li>Still nothing: <em>Settings → Energy → Reconnect</em>.</li>
+  </ul>
+
+  <h2>A light shows “?” instead of a consumption figure</h2>
+  <p>Then the Powercalc library does not know this model — with Hue smart plugs
+     that is the normal case, because the Bridge does not know what is plugged
+     into them. The app then calculates with a fallback value and says so.</p>
+
+  <h2>The leaving alert does not arrive</h2>
+  <p>It needs two things: location access set to <strong>“Always”</strong> and
+     a stored location. Both sit under <em>Settings → Leaving</em>; the app also
+     shows there whether iOS is really watching the zone. If the permission is
+     missing, a button leads straight into the iOS settings.</p>
+
+  <h2>The screen saver appears on the iPhone</h2>
+  <p>It is tied to <em>Keep screen awake</em> and shows up on the iPad only.
+     On the iPhone the app is a remote control and does not go idle.</p>
+
+  <h2>Subscription, billing, cancellation</h2>
+  <p>The subscription runs through your Apple ID, not through us. You cancel,
+     see the price and find the receipts under <em>Settings → your name →
+     Subscriptions</em>. Apple handles refunds, through
+     <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+     On a new device you fetch the subscription with <em>Restore purchase</em>.</p>
+
+  <h2>Resetting everything</h2>
+  <p>Right at the bottom of Settings there is <em>Factory reset</em>. It clears
+     all settings, disconnects the Bridge and deletes the metered values.
+     Your lights, rooms and scenes stay untouched — they belong to HomeKit
+     and the Bridge, not to the app.</p>
+
+  <h2>Provider</h2>
+  <p>Philippe Froehly, Schupfarterstrasse 6, 5074 Eiken, Switzerland<br>
+     <a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a> ·
+     <a href="tel:+41762110010">+41 76 211 00 10</a></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+      <a href="imprint.html">Legal notice</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
