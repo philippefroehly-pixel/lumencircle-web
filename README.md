@@ -31,8 +31,13 @@ Alternativ kann Hostinger das Repository auch selbst abholen
 
 ## Noch zu tun
 
-- Impressum ausfuellen (Name, Adresse, ggf. UID).
-- `hallo@lumencircle.ch` als Postfach einrichten — die Adresse steht auf der
-  Seite und in der Datenschutzerklaerung.
+- `hallo@lumencircle.ch` **weiterleiten** auf `philippe.froehly@gmail.com`
+  (hPanel -> Domains -> lumencircle.ch -> E-Mail -> Weiterleitung). Kein
+  eigenes Postfach — so entschieden am 5. September 2026. Die Weiterleitung
+  setzt die MX-Eintraege selbst; die Domain hat bis dahin weder MX noch SPF
+  noch DMARC, Mail an die Adresse geht lautlos verloren. Sie steht an
+  fuenfzehn Stellen, unter anderem im Impressum und in der
+  Datenschutzerklaerung, wo rechtlich ein Kontakt stehen muss.
+  Gegenprobe danach: `dig +short MX lumencircle.ch`.
 - Sobald die App im App Store ist: Link auf der Startseite ergaenzen und den
   Hinweis "noch nicht im App Store" entfernen.
