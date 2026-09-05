@@ -46,4 +46,14 @@ und ein DKIM-CNAME auf `sig1._domainkey`. **Nicht loeschen** — ohne sie faellt
 Zustellung sofort aus. Die A- und CNAME-Eintraege fuer GitHub Pages sind davon
 unberuehrt.
 
+Dazu kommt ein DMARC-Eintrag auf `_dmarc` mit `p=reject`: Post, die vorgibt von
+`@lumencircle.ch` zu kommen, es aber nicht ist, wird abgewiesen. Das ist gefahrlos,
+solange iCloud der einzige Absender bleibt. **Kommt je ein Newsletter- oder
+Versanddienst dazu, muss der vorher in den SPF-Eintrag** — sonst kommt seine Post
+nirgends an, und niemand sieht warum.
+
+`hallo@lumenglows.com` laeuft seit demselben Tag genauso (eigener Pruefcode und
+eigener DKIM-Eintrag, MX und SPF identisch). `lumenglows.app` ist bewusst nicht
+eingerichtet.
+
 Verwaltet wird das unter icloud.com → iCloud+-Funktionen → Eigene E-Mail-Domain.
