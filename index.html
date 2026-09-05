@@ -94,8 +94,11 @@
         <p>
           Läuft rund um die Uhr. Zeigt Räume statt Geräte, Temperatur und Luft,
           und was das Licht gerade zieht. Nach gut einer Minute ohne Berührung
-          wird daraus ein ruhiges Bild mit Uhrzeit und Wetter. Nichts brennt
-          ein, nachts blendet nichts.
+          wird daraus ein ruhiges Bild: Uhrzeit und Datum, wie es in den Räumen
+          steht, und ob irgendwo noch Licht an ist. Hast du einen Aussenfühler
+          im Zuhause, steht seine Temperatur gleich unter der Uhr; läuft der
+          Stromzähler, steht die Leistung darunter. Nichts brennt ein, nachts
+          blendet nichts.
         </p>
       </div>
       <div class="world">
@@ -133,12 +136,14 @@
       <h2 id="ring">Der Ring ist der Regler.</h2>
       <p class="muted">
         Wie weit der Bogen geschlossen ist, zeigt, wie viel Licht im Raum
-        brennt. Seine Farbe ist die Farbe, die deine Lampen gerade haben.
+        brennt. Seine Farbe ist die Farbe, die deine Lampen gerade haben —
+        nachts nicht, da bleibt alles monochrom, damit kein blaues Licht ins
+        Zimmer fällt.
       </p>
       <ul class="points">
         <li><strong>Ein Tipp</strong> zieht den Ring gross auf.</li>
         <li><strong>Ein Zug</strong> regelt alle Leuchten des Raums zugleich; jedes Prozent rastet spürbar ein.</li>
-        <li><strong>Eine einzelne Lampe?</strong> Raum aufklappen, dort steht sie.</li>
+        <li><strong>Ein aufgeklappter Raum</strong> zeigt jede Lampe einzeln.</li>
       </ul>
       <p class="note">
         Dreissig Leuchten sind als Liste eine Kachelwand. Als Räume sind es
@@ -165,14 +170,16 @@
       <h2 id="strom-titel">Was das Licht kostet.</h2>
       <p class="muted">
         Hue-Lampen messen ihren Verbrauch nicht. Lumen Circle rechnet ihn, mit
-        Kurven, die an echten Lampen gemessen wurden: für jedes Modell, von
-        einem Prozent bis Vollgas. Eine halb gedimmte Lampe zieht oft nur ein
-        Drittel.
+        Kurven, die an echten Lampen gemessen wurden: von einem Prozent bis
+        Vollgas. Eine halb gedimmte Lampe zieht oft nur ein Drittel. Für
+        bekannte Modelle ist das nah dran; kennt die Bibliothek eine Lampe nicht
+        — bei Hue-Steckdosen ist das die Regel —, rechnet die App mit einem
+        Schätzwert und sagt es dazu.
       </p>
       <ul class="points">
         <li><strong>Jetzt:</strong> die Leistung je Raum und gesamt, auf dem Panel und im Bildschirmschoner.</li>
         <li><strong>Tag, Woche, Monat, Jahr:</strong> Kosten mit deinem Strompreis, auf Wunsch mit Hoch- und Niedertarif.</li>
-        <li><strong>Neue Lampe?</strong> Ihr Profil holt die App von selbst.</li>
+        <li><strong>Neue Lampe:</strong> Ihr Profil holt die App von selbst.</li>
         <li><strong>Auf Wunsch:</strong> eine Tagesbilanz am Abend, eine Warnung bei hoher Last, eine Monatsgrenze in Franken. Alle drei ab Werk aus.</li>
       </ul>
       <p class="note">
@@ -190,7 +197,7 @@
     <dl class="features">
       <div>
         <dt>Luft, bevor es auffällt</dt>
-        <dd>CO₂ steigt über Stunden, die Konzentration sinkt lange davor. Lumen Circle nennt nicht nur die Zahl, sondern sagt, dass Lüften hilft.</dd>
+        <dd>CO₂ steigt über Stunden. Müde wird man, lange bevor die Luft schlecht riecht. Lumen Circle zeigt den Wert, ordnet ihn ein — von sehr gut bis sehr schlecht — und sagt, dass Lüften hilft.</dd>
       </div>
       <div>
         <dt>Licht vergessen?</dt>
@@ -210,7 +217,7 @@
       </div>
       <div>
         <dt>Kurzbefehle als Kacheln</dt>
-        <dd>Saugroboter, Kaffeemaschine, alles ohne HomeKit: Was die Kurzbefehle-App kann, bekommt eine Kachel. Anleitung in fünf Schritten inklusive.</dd>
+        <dd>Saugroboter, Kaffeemaschine und alles andere, was kein HomeKit spricht: Was die Kurzbefehle-App kann, bekommt eine Kachel. Anleitung in fünf Schritten inklusive.</dd>
       </div>
       <div>
         <dt>Wecklicht</dt>
@@ -244,7 +251,7 @@
       <li>
         <div>
           <h3>Den Rest fragt iOS, wenn es so weit ist.</h3>
-          <p>Wetter, Mitteilungen, Weggeh-Meldung, Party-Modus: jeweils beim ersten Mal. Wer ablehnt, verliert genau diese Funktion, sonst nichts.</p>
+          <p>Lokales Netzwerk, Mitteilungen, Weggeh-Meldung, Party-Modus: jeweils beim ersten Mal. Wer ablehnt, verliert genau diese Funktion, sonst nichts.</p>
         </div>
       </li>
     </ol>
@@ -256,36 +263,40 @@
   </div>
 </section>
 
-<section class="section" id="preis" aria-labelledby="preis-titel">
+<div class="section" id="preis">
   <div class="wrap split">
-    <div>
+    <section aria-labelledby="preis-titel">
       <p class="eyebrow">Preis</p>
       <h2 id="preis-titel">CHF 8 im Jahr.</h2>
       <p class="muted">
-        Die ersten vier Tage kostenlos, mit allem drin. Der Kauf gilt für alle
-        Geräte mit derselben Apple-ID und lässt sich wiederherstellen. Kündbar
-        in den Apple-Einstellungen, wie jedes Abo dort.
+        Die ersten vier Tage kostenlos, mit allem drin. Danach ein Abo, das
+        sich automatisch um jeweils ein Jahr verlängert. Es gilt für
+        alle Geräte mit derselben Apple-ID und lässt sich über „Kauf
+        wiederherstellen“ auf ein neues Gerät holen. Kündbar jederzeit in den
+        Einstellungen deiner Apple-ID.
       </p>
       <p class="small">
         Lumen Circle ist noch nicht im App Store. Diese Seite beschreibt den
         Stand der Entwicklung.
       </p>
-    </div>
-    <div>
+    </section>
+    <section id="datenschutz" aria-labelledby="datenschutz-titel">
       <p class="eyebrow">Datenschutz</p>
-      <h2>Bleibt auf dem Gerät.</h2>
+      <h2 id="datenschutz-titel">Bleibt auf dem Gerät.</h2>
       <p class="muted">
-        Server gibt es keine, ausgewertet wird nichts. Das Gerät verlassen
-        nur drei Dinge: die grobe Position für Apples Wetterdienst, der Kauf
-        über den App Store, und die Modellkennung einer Lampe, etwa
-        „LCT015“, wenn die App ihr Verbrauchsprofil aus der offenen
-        Powercalc-Bibliothek holt. Kein Name, kein Ort, keine Angabe, wie
-        viele du davon hast.
+        Server gibt es keine, ausgewertet wird nichts. Nach draussen geht
+        wenig und nichts Persönliches: der Kauf über den App Store, die
+        Modellkennung einer Lampe, etwa „LCT015“, für ihr Verbrauchsprofil
+        aus der offenen Powercalc-Bibliothek und — nur falls die Bridge im
+        Heimnetz nicht auffindbar ist — eine leere Anfrage an Signifys
+        Verzeichnisdienst. Kein Name, keine Kennung deines Zuhauses, keine
+        Angabe, wie viele Lampen du hast. Den Ort für die Weggeh-Meldung
+        legt die App auf dem Gerät ab, und dort bleibt er.
         <a href="datenschutz.html">Die ausführliche Fassung.</a>
       </p>
-    </div>
+    </section>
   </div>
-</section>
+</div>
 
 </main>
 
@@ -299,6 +310,7 @@
     </nav>
     <p>Lumen Circle ist ein unabhängiges Produkt und steht in keiner Verbindung zu Apple Inc. oder Signify.
        Apple, HomeKit, iPhone, iPad und Apple Watch sind Marken von Apple Inc. Philips Hue ist eine Marke von Signify.</p>
+    <p class="copyright">© 2026 Lumen Circle</p>
   </div>
 </footer>
 

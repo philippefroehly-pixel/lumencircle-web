@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support — Lumen Circle</title>
-<meta name="description" content="Hilfe zu Lumen Circle: Wetter, Hue Bridge, Weggeh-Meldung, Abo. Und wie du den Anbieter erreichst.">
+<meta name="description" content="Hilfe zu Lumen Circle: Hue Bridge, Stromwerte, Weggeh-Meldung, Abo. Und wie du den Anbieter erreichst.">
 <link rel="alternate" hreflang="de" href="https://lumencircle.ch/support.html">
 <link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/support.html">
 <link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/support.html">
@@ -31,34 +31,36 @@
      Antwort kommt von einem Menschen, meist innert zwei Werktagen. Nenn dabei
      dein Gerät und die iOS-Version — das spart eine Rückfrage.</p>
 
-  <h2>Das Wetter bleibt leer</h2>
-  <p>Lumen Circle holt das Wetter von Apple und braucht dafür deinen Standort.
-     Prüf in den iOS-Einstellungen unter <em>Lumen Circle → Standort</em>, ob
-     mindestens <em>Beim Verwenden der App</em> steht. Auf dem Dashboard steht
-     an der Stelle der Wetterkarte immer der Grund, wenn etwas fehlt.</p>
-
   <h2>Die Hue Bridge wird nicht gefunden</h2>
   <ul class="points">
     <li>Bridge und Gerät müssen im <strong>selben WLAN</strong> sein. Ein Gästenetz zählt nicht.</li>
     <li>iOS fragt einmal nach dem <strong>lokalen Netzwerk</strong>. Wurde das abgelehnt, steht es unter <em>Einstellungen → Lumen Circle → Lokales Netzwerk</em>.</li>
-    <li>Nach dem Tippen auf „Bridge verbinden" hast du 30 Sekunden, um den <strong>runden Knopf</strong> auf der Bridge zu drücken.</li>
+    <li>Nach dem Tippen auf „Bridge verbinden“ hast du zwei Minuten Zeit, den <strong>runden Knopf</strong> auf der Bridge zu drücken. Die App zählt die Sekunden mit.</li>
     <li>Geht es immer noch nicht: <em>Einstellungen → Strom → Neu verbinden</em>.</li>
   </ul>
 
-  <h2>Eine Lampe zeigt „?" statt eines Verbrauchs</h2>
+  <h2>Eine Lampe zeigt „?“ statt eines Verbrauchs</h2>
   <p>Dann kennt die Powercalc-Bibliothek dieses Modell nicht — bei Hue-Steckdosen
      ist das der Normalfall, denn was daran hängt, weiss die Bridge nicht. Die
      App rechnet dann mit einem Rückfallwert und sagt das dazu.</p>
 
   <h2>Die Weggeh-Meldung kommt nicht</h2>
-  <p>Sie braucht zwei Dinge: die Ortungsfreigabe <strong>„Immer"</strong> und
+  <p>Sie braucht zwei Dinge: die Ortungsfreigabe <strong>„Immer“</strong> und
      einen hinterlegten Ort. Beides steht unter <em>Einstellungen → Weggehen</em>;
      dort zeigt die App auch, ob iOS die Zone wirklich überwacht. Fehlt die
      Freigabe, führt ein Knopf direkt in die iOS-Einstellungen.</p>
 
-  <h2>Der Bildschirmschoner kommt auf dem iPhone</h2>
+  <h2>Der Bildschirmschoner kommt auf dem iPhone nicht</h2>
   <p>Er hängt an <em>Bildschirm wach halten</em> und erscheint nur auf dem iPad.
      Auf dem iPhone ist die App eine Fernbedienung und geht nicht in Ruhelage.</p>
+
+  <h2>Im Schoner fehlt die Aussentemperatur</h2>
+  <p>Sie kommt aus einem Temperaturfühler in deinem Zuhause, der <strong>keinem
+     Raum zugeordnet</strong> ist — so unterscheidet die App draussen von
+     drinnen. Gibt es keinen solchen Fühler, fällt die Zeile weg; eine andere
+     Quelle dafür hat die App nicht. Dasselbe gilt für die Wattzahl darunter:
+     Sie erscheint, sobald der Stromzähler läuft, also die Hue Bridge verbunden
+     ist. Beides gilt genauso für den Streifen über dem Dashboard.</p>
 
   <h2>Abo, Rechnung, Kündigung</h2>
   <p>Das Abo läuft über deine Apple-ID, nicht über uns. Kündigen, Preis ansehen
@@ -88,6 +90,7 @@
       <a href="support.html">Support</a>
       <a href="impressum.html">Impressum</a>
     </nav>
+    <p class="copyright">© 2026 Lumen Circle</p>
   </div>
 </footer>
 

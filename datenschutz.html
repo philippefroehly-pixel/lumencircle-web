@@ -27,6 +27,9 @@
 
 <main class="wrap legal" style="padding:3rem 0">
   <h1>Datenschutz</h1>
+  <p class="small">Verantwortlich: Philippe Froehly, Schupfarterstrasse 6,
+     5074 Eiken, Schweiz ·
+     <a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a></p>
   <p><strong>Lumen Circle hat keine Server.</strong> Was die App über dein Zuhause
      weiss, steht auf deinem Gerät und bleibt dort. Ein Konto brauchst du nicht,
      anmelden musst du dich nirgends, und ausgewertet wird nichts.</p>
@@ -38,16 +41,12 @@
         HomeKit und schreibt Schaltbefehle dorthin zurück. Das Gerät verlässt
         davon nichts.</dd>
 
-    <dt>Standort — Wetter</dt>
-    <dd>Apples Wetterdienst (WeatherKit) bekommt die grobe Position, um die
-        Vorhersage für deinen Ort zu liefern. Für etwas anderes wird sie nicht
-        benutzt. Verweigerst du die Berechtigung, bleibt nur die Wetterkarte
-        leer; alles übrige arbeitet weiter.</dd>
-
     <dt>Standort — beim Weggehen melden</dt>
-    <dd>Wer die Funktion einschaltet, legt einmal seinen Wohnort fest. Dieser
-        Ort wird <em>auf dem Gerät</em> gespeichert und nirgendwohin gesendet;
-        iOS überwacht daraufhin die Zone und weckt die App, wenn du sie
+    <dd>Das ist der einzige Zweck, für den die App überhaupt nach deinem
+        Standort fragt. Wer die Funktion einschaltet, legt einmal seinen
+        Wohnort fest.
+        Dieser Ort wird <em>auf dem Gerät</em> gespeichert und verlässt es
+        nie; iOS überwacht daraufhin die Zone und weckt die App, wenn du sie
         verlässt. Ab Werk ist die Funktion aus.</dd>
 
     <dt>Hue Bridge im Heimnetz</dt>
@@ -58,6 +57,15 @@
         verlässt es nicht. iOS fragt dafür einmal nach dem Zugriff auf das
         lokale Netzwerk. Trennen lässt sich die Verbindung jederzeit in den
         Einstellungen.</dd>
+
+    <dt>Bridge finden — Signify</dt>
+    <dd>Zuerst sucht die App die Bridge im Netz selbst. Findet sie dort keine,
+        fragt sie einmal den Verzeichnisdienst von Signify
+        (<em>discovery.meethue.com</em>). Die Anfrage hat keinen Inhalt; wie
+        bei jedem Aufruf im Netz sieht der Dienst dabei die öffentliche
+        Adresse deines Anschlusses und antwortet mit den Bridges dahinter.
+        Aus deinem Zuhause geht dabei nichts mit, und gespeichert wird davon
+        nichts.</dd>
 
     <dt>Verbrauchsprofile — Powercalc</dt>
     <dd>Hue-Lampen messen ihren Verbrauch nicht. Für jedes Lampenmodell, das die
@@ -107,34 +115,51 @@
         sich nach Apples Einstellungen, nicht nach unseren.</dd>
 
     <dt>Live Activity auf dem Sperrbildschirm</dt>
-    <dd>Ein laufender Raum-Timer erscheint als Live Activity. Sie zeigt Raumname
+    <dd>Ein laufender Raum-Timer erscheint als Live Activity. Sie zeigt Raumnamen
         und Restzeit und läuft über iOS auf demselben Gerät.</dd>
   </dl>
 
-  <h2>Kauf</h2>
-  <p>Die Freischaltung läuft über den App Store. Zahlung und Beleg wickelt Apple
-     ab; die App erfährt davon nur, <em>ob</em> freigeschaltet ist, nicht wer
-     gekauft hat. Einen weiteren Zahlungsdienstleister gibt es nicht. Für Apples
+  <h2>Abo</h2>
+  <p>Das Abo läuft über den App Store. Zahlung und Beleg wickelt Apple
+     ab; die App erfährt davon nur, <em>ob</em> es läuft, nicht wer
+     es abgeschlossen hat. Einen weiteren Zahlungsdienstleister gibt es nicht. Für Apples
      Umgang mit diesen Daten gilt Apples Datenschutzrichtlinie.</p>
 
   <h2>Kein Tracking</h2>
   <p>In der App steckt keine Werbe-Kennung und keine Bibliothek, die dein
-     Verhalten auswertet. Absturzberichte gehen an niemanden, und diese Seite
-     setzt keine Cookies. Nach einer Tracking-Erlaubnis fragt die App nicht,
-     weil es nichts zu verfolgen gibt.</p>
+     Verhalten auswertet. Absturzberichte gehen an niemanden. Nach einer
+     Tracking-Erlaubnis fragt die App nicht, weil es nichts zu verfolgen
+     gibt.</p>
+
+  <h2>Diese Website</h2>
+  <p>Cookies setzt sie keine, und ein Analysewerkzeug läuft hier nicht. Zwei
+     Dinge sollst du trotzdem wissen: Die Seite liegt bei GitHub Pages, und
+     wie jeder Webserver protokolliert der Hoster dabei die Abrufe samt
+     IP-Adresse. Die Schrift Hanken Grotesk lädt die Startseite von Google
+     Fonts; auch dabei sieht der Anbieter die IP-Adresse deines Anschlusses.
+     Beides betrifft nur diese Website, nicht die App.</p>
+
+  <h2>Wenn du uns schreibst</h2>
+  <p>Eine Support-Mail an <a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a>
+     landet in einem gewöhnlichen Postfach. Adresse, Inhalt und Anhänge bleiben
+     dort liegen, solange die Sache läuft, und werden danach gelöscht,
+     spätestens nach zwei Jahren. Weitergegeben wird davon nichts, und für
+     Werbung benutzen wir es nicht.</p>
 
   <h2>Deine Rechte</h2>
-  <p>Bei uns fallen keine personenbezogenen Daten an. Deshalb können wir weder
-     Auskunft darüber geben noch etwas löschen: Es liegt schlicht nichts vor.
-     Alles, was die App gespeichert hat, verschwindet, sobald du sie vom Gerät
-     löschst, oder wenn du in den Einstellungen die Werkseinstellung wählst.
-     Diese räumt auch den Schlüssel der Hue Bridge aus dem Schlüsselbund.</p>
+  <p>Ausser deiner Support-Korrespondenz fallen bei uns keine personenbezogenen
+     Daten an. Über sie kannst du jederzeit Auskunft verlangen, sie berichtigen
+     oder löschen lassen — eine Mail genügt. Über alles andere können wir weder
+     Auskunft geben noch etwas löschen: Es liegt schlicht nichts vor. Alles,
+     was die App gespeichert hat, verschwindet, sobald du sie vom Gerät löschst,
+     oder wenn du in den Einstellungen die Werkseinstellung wählst. Diese räumt
+     auch den Schlüssel der Hue Bridge aus dem Schlüsselbund.</p>
 
   <h2>Kontakt</h2>
   <p><a href="mailto:hallo@lumencircle.ch">hallo@lumencircle.ch</a></p>
 
   <p style="color:var(--text-3);font-size:.9rem;margin-top:2.5rem">
-     Stand: September 2026.</p>
+     Fassung vom 5. September 2026.</p>
 </main>
 
 <footer>
@@ -146,6 +171,7 @@
       <a href="support.html">Support</a>
       <a href="impressum.html">Impressum</a>
     </nav>
+    <p class="copyright">© 2026 Lumen Circle</p>
   </div>
 </footer>
 

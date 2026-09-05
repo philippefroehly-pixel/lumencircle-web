@@ -94,8 +94,11 @@
         <p>
           Runs around the clock. Shows rooms instead of devices, temperature
           and air, and what the light is drawing right now. After a good
-          minute without a touch it turns into a calm picture with the time
-          and the weather. Nothing burns in, and nothing glares at night.
+          minute without a touch it turns into a calm picture: the time and
+          date, how things stand in each room, and whether a light is still
+          on. If your home has an outdoor sensor, its temperature sits right
+          under the clock; if the energy meter is running, the wattage sits
+          below that. Nothing burns in, and nothing glares at night.
         </p>
       </div>
       <div class="world">
@@ -133,12 +136,14 @@
       <h2 id="ring">The ring is the control.</h2>
       <p class="muted">
         How far the arc is closed shows how much light is on in the room.
-        Its colour is the colour your lamps have right now.
+        Its colour is the colour your lamps have right now — not at night,
+        when everything stays monochrome so no blue light falls into the
+        room.
       </p>
       <ul class="points">
         <li><strong>One tap</strong> opens the ring at full size.</li>
         <li><strong>One drag</strong> sets every lamp in the room at once; each percent clicks into place, and you can feel it.</li>
-        <li><strong>A single lamp?</strong> Open up the room, and there it is.</li>
+        <li><strong>A room opened up</strong> shows every lamp on its own.</li>
       </ul>
       <p class="note">
         Thirty lamps as a list are a wall of tiles. As rooms they are six
@@ -165,14 +170,16 @@
       <h2 id="strom-titel">What the light costs.</h2>
       <p class="muted">
         Hue lamps do not measure their own consumption. Lumen Circle works it
-        out, with curves measured on real lamps: for every model, from one
-        percent to full blast. A lamp dimmed to half often draws only a
-        third.
+        out, with curves measured on real lamps: from one percent to full
+        blast. A lamp dimmed to half often draws only a third. For known
+        models that is close; when the library does not know a lamp — with
+        Hue plugs that is the rule — the app works with an estimate and says
+        so.
       </p>
       <ul class="points">
         <li><strong>Right now:</strong> the power draw per room and in total, on the panel and in the screen saver.</li>
         <li><strong>Day, week, month, year:</strong> costs at your electricity price, with high and low tariff if you like.</li>
-        <li><strong>New lamp?</strong> The app fetches its profile by itself.</li>
+        <li><strong>New lamp:</strong> the app fetches its profile by itself.</li>
         <li><strong>If you like:</strong> a daily summary in the evening, an alert on high load, a monthly limit in francs. All three off out of the box.</li>
       </ul>
       <p class="note">
@@ -190,7 +197,7 @@
     <dl class="features">
       <div>
         <dt>Air, before you notice</dt>
-        <dd>CO₂ builds up over hours; your concentration drops long before that. Lumen Circle does not just give you the number, it tells you that airing the room helps.</dd>
+        <dd>CO₂ builds up over hours. You get tired long before the air smells stale. Lumen Circle shows the value, places it — from very good to very poor — and tells you that airing the room helps.</dd>
       </div>
       <div>
         <dt>Forgot the light?</dt>
@@ -210,7 +217,7 @@
       </div>
       <div>
         <dt>Shortcuts as tiles</dt>
-        <dd>Robot vacuum, coffee machine, anything without HomeKit: whatever the Shortcuts app can do gets a tile. Five-step guide included.</dd>
+        <dd>Robot vacuum, coffee machine and anything else that does not speak HomeKit: whatever the Shortcuts app can do gets a tile. Five-step guide included.</dd>
       </div>
       <div>
         <dt>Wake light</dt>
@@ -244,7 +251,7 @@
       <li>
         <div>
           <h3>iOS asks for the rest when the time comes.</h3>
-          <p>Weather, notifications, leaving alert, Party mode: each one the first time it is needed. If you say no, you lose exactly that function and nothing else.</p>
+          <p>Local network, notifications, leaving alert, Party mode: each one the first time it is needed. If you say no, you lose exactly that function and nothing else.</p>
         </div>
       </li>
     </ol>
@@ -256,36 +263,39 @@
   </div>
 </section>
 
-<section class="section" id="preis" aria-labelledby="preis-titel">
+<div class="section" id="preis">
   <div class="wrap split">
-    <div>
+    <section aria-labelledby="preis-titel">
       <p class="eyebrow">Price</p>
       <h2 id="preis-titel">CHF 8 a year.</h2>
       <p class="muted">
-        The first four days free, with everything included. The purchase
-        covers every device with the same Apple ID and can be restored.
-        You can cancel it in the Apple settings, like any subscription there.
+        The first four days free, with everything included. After that a
+        subscription that renews automatically for another year each time. It
+        covers every device with the same Apple ID and moves to a new one with
+        “Restore Purchase”. Cancel it any time in your Apple ID settings.
       </p>
       <p class="small">
         Lumen Circle is not in the App Store yet. This page describes the
         current state of development.
       </p>
-    </div>
-    <div>
+    </section>
+    <section id="datenschutz" aria-labelledby="privacy-titel">
       <p class="eyebrow">Privacy</p>
-      <h2>Stays on the device.</h2>
+      <h2 id="privacy-titel">Stays on the device.</h2>
       <p class="muted">
-        There are no servers, and nothing is analysed. Only three things
-        leave the device: a rough position for Apple’s weather service, the
-        purchase through the App Store, and a lamp’s model identifier,
-        “LCT015” for instance, when the app fetches its consumption profile
-        from the open Powercalc library. No name, no location, no word on
-        how many of them you have.
+        There are no servers, and nothing is analysed. Little goes out and
+        nothing personal: the purchase through the App Store, a lamp’s model
+        identifier, “LCT015” for instance, for its consumption profile from
+        the open Powercalc library, and — only if the bridge cannot be found
+        on the home network — an empty request to Signify’s directory
+        service. No name, no identifier for your home, no word on how many
+        lamps you have. The app keeps the spot for the leaving alert on the
+        device, and that is where it stays.
         <a href="privacy.html">The full version.</a>
       </p>
-    </div>
+    </section>
   </div>
-</section>
+</div>
 
 </main>
 
@@ -300,6 +310,7 @@
     </nav>
     <p>Lumen Circle is an independent product and has no connection with Apple Inc. or Signify.
        Apple, HomeKit, iPhone, iPad and Apple Watch are trademarks of Apple Inc. Philips Hue is a trademark of Signify.</p>
+    <p class="copyright">© 2026 Lumen Circle</p>
   </div>
 </footer>
 

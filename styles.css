@@ -259,6 +259,7 @@ footer {
 }
 footer nav { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
 footer p { max-width: none; }
+.copyright { margin: 1rem 0 0; color: var(--text-3); }
 
 /* Rechtstexte ------------------------------------------------------------ */
 

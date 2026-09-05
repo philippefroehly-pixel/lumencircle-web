@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support — Lumen Circle</title>
-<meta name="description" content="Help with Lumen Circle: weather, Hue Bridge, leaving alert, subscription. And how to reach the provider.">
+<meta name="description" content="Help with Lumen Circle: Hue Bridge, energy figures, leaving alert, subscription. And how to reach the provider.">
 <link rel="alternate" hreflang="de" href="https://lumencircle.ch/support.html">
 <link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/support.html">
 <link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/support.html">
@@ -31,17 +31,11 @@
      A person answers, usually within two working days. Name your device and
      the iOS version — that saves a follow-up question.</p>
 
-  <h2>The weather stays empty</h2>
-  <p>Lumen Circle gets the weather from Apple and needs your location for it.
-     In the iOS settings under <em>Lumen Circle → Location</em>, check that it
-     says at least <em>While Using the App</em>. On the dashboard, the reason
-     is always shown in place of the weather tile when something is missing.</p>
-
   <h2>The Hue Bridge is not found</h2>
   <ul class="points">
     <li>Bridge and device have to be on the <strong>same Wi-Fi</strong>. A guest network does not count.</li>
     <li>iOS asks once about the <strong>local network</strong>. If that was declined, it sits under <em>Settings → Lumen Circle → Local Network</em>.</li>
-    <li>After tapping “Connect Bridge” you have 30 seconds to press the <strong>round button</strong> on the Bridge.</li>
+    <li>After tapping “Connect Bridge” you have two minutes to press the <strong>round button</strong> on the Bridge. The app counts the seconds down.</li>
     <li>Still nothing: <em>Settings → Energy → Reconnect</em>.</li>
   </ul>
 
@@ -56,9 +50,17 @@
      shows there whether iOS is really watching the zone. If the permission is
      missing, a button leads straight into the iOS settings.</p>
 
-  <h2>The screen saver appears on the iPhone</h2>
+  <h2>The screen saver does not appear on the iPhone</h2>
   <p>It is tied to <em>Keep screen awake</em> and shows up on the iPad only.
      On the iPhone the app is a remote control and does not go idle.</p>
+
+  <h2>The outdoor temperature is missing from the screen saver</h2>
+  <p>It comes from a temperature sensor in your home that is assigned to
+     <strong>no room</strong> — that is how the app tells outside from inside.
+     If there is no such sensor, the line is left out; the app has no other
+     source for it. The same goes for the wattage below it: it appears once the
+     energy meter is running, that is, once the Hue Bridge is connected. Both
+     apply to the strip above the dashboard as well.</p>
 
   <h2>Subscription, billing, cancellation</h2>
   <p>The subscription runs through your Apple ID, not through us. You cancel,
@@ -88,6 +90,7 @@
       <a href="support.html">Support</a>
       <a href="imprint.html">Legal notice</a>
     </nav>
+    <p class="copyright">© 2026 Lumen Circle</p>
   </div>
 </footer>
 
