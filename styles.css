@@ -181,7 +181,10 @@ h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0
 
 /* Drei Geräte: die Struktur der App, nicht der Seite. */
 .worlds { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-top: 2rem; }
-@media (min-width: 52rem) { .worlds { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+/* Vier Geräte: erst zwei nebeneinander, ab genug Breite alle vier. Bei drei
+   Spalten stünde das vierte allein in einer zweiten Reihe. */
+@media (min-width: 52rem) { .worlds { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; } }
+@media (min-width: 74rem) { .worlds { grid-template-columns: repeat(4, 1fr); gap: 2rem; } }
 .world { padding-top: 1.2rem; position: relative; }
 .world::before {
   content: ""; position: absolute; left: 0; top: 0;
@@ -207,6 +210,11 @@ h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0
   .world .shot img { height: auto; object-fit: initial; }
   .world .shot-ring { aspect-ratio: 4 / 5; }
 }
+/* Der Mac ist quer, die anderen drei sind hoch. Statt die Reihe zu brechen,
+   liegt das Fenster mittig im selben 4:5-Rahmen — auf dem Grundton der App,
+   damit der Rand nicht als Fehler gelesen wird. */
+.world .shot-mac { display: grid; place-items: center; background: var(--ink); }
+.world .shot-mac img { width: 100%; height: auto; object-fit: contain; }
 .world .shot-ring { display: grid; place-items: center; background: radial-gradient(60% 60% at 50% 45%, rgba(199,125,255,0.18), transparent 70%), var(--ink); }
 .world .shot-ring svg { width: 58%; height: auto; aspect-ratio: 1; }
 .world h3 { font-family: var(--display); font-weight: 400; font-size: 1.5rem; letter-spacing: -0.01em; }
