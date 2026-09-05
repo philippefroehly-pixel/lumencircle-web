@@ -31,13 +31,19 @@ Alternativ kann Hostinger das Repository auch selbst abholen
 
 ## Noch zu tun
 
-- `hallo@lumencircle.ch` **weiterleiten** auf `philippe.froehly@gmail.com`
-  (hPanel -> Domains -> lumencircle.ch -> E-Mail -> Weiterleitung). Kein
-  eigenes Postfach — so entschieden am 5. September 2026. Die Weiterleitung
-  setzt die MX-Eintraege selbst; die Domain hat bis dahin weder MX noch SPF
-  noch DMARC, Mail an die Adresse geht lautlos verloren. Sie steht an
-  fuenfzehn Stellen, unter anderem im Impressum und in der
-  Datenschutzerklaerung, wo rechtlich ein Kontakt stehen muss.
-  Gegenprobe danach: `dig +short MX lumencircle.ch`.
 - Sobald die App im App Store ist: Link auf der Startseite ergaenzen und den
   Hinweis "noch nicht im App Store" entfernen.
+
+## Mail
+
+`hallo@lumencircle.ch` ist ein echtes Postfach ueber **iCloud+ Eigene E-Mail-Domain**
+(seit 5. September 2026), kein Weiterleiter und kein Zusatzabo — es laeuft im
+bestehenden iCloud+ mit. Post landet in Apple Mail auf allen Geraeten.
+
+Die Zone traegt dafuer fuenf Eintraege: zwei MX auf `mx01`/`mx02.mail.icloud.com`,
+ein TXT `apple-domain=…` zur Besitzpruefung, ein SPF `v=spf1 include:icloud.com ~all`
+und ein DKIM-CNAME auf `sig1._domainkey`. **Nicht loeschen** — ohne sie faellt die
+Zustellung sofort aus. Die A- und CNAME-Eintraege fuer GitHub Pages sind davon
+unberuehrt.
+
+Verwaltet wird das unter icloud.com → iCloud+-Funktionen → Eigene E-Mail-Domain.
