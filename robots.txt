@@ -1,3 +1,9 @@
+# Suchmaschinen duerfen alles crawlen. Was nicht in den Index soll — Impressum,
+# Datenschutz, Nutzungsbedingungen und Support, weil dort Name und Adresse des
+# Anbieters stehen — sagt das per noindex im Seitenkopf. Ein Disallow waere hier
+# falsch: Was nicht gecrawlt wird, kann das noindex nicht lesen und landet
+# trotzdem als nackter Link im Index.
 User-agent: *
 Allow: /
+
 Sitemap: https://lumencircle.ch/sitemap.xml

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Nur die beiden Startseiten. Impressum, Datenschutz, Nutzungsbedingungen
+     und Support tragen Name und Adresse des Anbieters und stehen deshalb auf
+     noindex; eine Seite, die nicht in den Index soll, gehoert auch nicht in
+     die Sitemap. Crawlen duerfen Suchmaschinen sie weiterhin — sonst laesen
+     sie das noindex gar nicht. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
@@ -14,47 +19,5 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/"/>
-  </url>
-  <url>
-    <loc>https://lumencircle.ch/datenschutz.html</loc>
-    <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/datenschutz.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/datenschutz.html"/>
-  </url>
-  <url>
-    <loc>https://lumencircle.ch/en/privacy.html</loc>
-    <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/datenschutz.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/datenschutz.html"/>
-  </url>
-  <url>
-    <loc>https://lumencircle.ch/nutzungsbedingungen.html</loc>
-    <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/nutzungsbedingungen.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/terms.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/nutzungsbedingungen.html"/>
-  </url>
-  <url>
-    <loc>https://lumencircle.ch/en/terms.html</loc>
-    <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/nutzungsbedingungen.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/terms.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/nutzungsbedingungen.html"/>
-  </url>
-  <url>
-    <loc>https://lumencircle.ch/support.html</loc>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/support.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/support.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/support.html"/>
-  </url>
-  <url>
-    <loc>https://lumencircle.ch/en/support.html</loc>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://lumencircle.ch/support.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/support.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/support.html"/>
   </url>
 </urlset>

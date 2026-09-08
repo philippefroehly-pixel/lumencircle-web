@@ -3,13 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumen Circle — your home at a glance</title>
-<meta name="description" content="An iPad on the wall you can still read effortlessly from two metres away. The iPhone as a remote control, the Apple Watch as a precise dial, the Mac as a discreet window beside your work. For Apple Home and Philips Hue. The first four days completely free, then a yearly subscription.">
-<meta property="og:title" content="Lumen Circle — your home at a glance">
-<meta property="og:description" content="Rooms, not devices. Light with one ring. For Apple Home and Philips Hue, on iPad, iPhone, Apple Watch and Mac.">
+<title>HomeKit Dashboard for iPad and Philips Hue — Lumen Circle</title>
+<meta name="description" content="Wall panel for Apple Home and Philips Hue: rooms instead of devices, light on a ring, live Hue power use. For iPad, iPhone, Apple Watch and Mac. Four days free.">
+<meta property="og:title" content="HomeKit Dashboard for iPad and Philips Hue — Lumen Circle">
+<meta property="og:description" content="Rooms, not devices. Light with one ring. The power your Hue lamps draw, live. For Apple Home and Philips Hue, on iPad, iPhone, Apple Watch and Mac.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lumencircle.ch/en/">
 <meta property="og:image" content="https://lumencircle.ch/assets/ipad.png">
+<meta property="og:site_name" content="Lumen Circle">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_CH">
+<meta property="og:image:alt" content="Lumen Circle on an iPad on the wall: a large clock, below it the rooms with their light rings.">
+<meta property="og:image:width" content="1032">
+<meta property="og:image:height" content="1376">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HomeKit Dashboard for iPad and Philips Hue — Lumen Circle">
+<meta name="twitter:description" content="Rooms, not devices. Light with one ring. The power your Hue lamps draw, live. For Apple Home and Philips Hue, on iPad, iPhone, Apple Watch and Mac.">
+<meta name="twitter:image" content="https://lumencircle.ch/assets/ipad.png">
+<meta name="apple-itunes-app" content="app-id=6808305525">
 <meta name="theme-color" content="#0e0a1c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +30,98 @@
 <link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/">
 <link rel="canonical" href="https://lumencircle.ch/en/">
 <link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Lumen Circle",
+ "applicationCategory": "LifestyleApplication",
+ "applicationSubCategory": "Smart Home",
+ "operatingSystem": "iOS 26, iPadOS 26, macOS 26, watchOS 26",
+ "url": "https://lumencircle.ch/en/",
+ "downloadUrl": "https://apps.apple.com/app/id6808305525",
+ "installUrl": "https://apps.apple.com/app/id6808305525",
+ "inLanguage": [
+  "de",
+  "en"
+ ],
+ "image": "https://lumencircle.ch/assets/ipad.png",
+ "screenshot": [
+  "https://lumencircle.ch/assets/ipad.png",
+  "https://lumencircle.ch/assets/dashboard.png",
+  "https://lumencircle.ch/assets/strom.png"
+ ],
+ "featureList": [
+  "Wall panel for Apple Home on the iPad",
+  "Rooms instead of devices, controlled with one ring",
+  "Power use and running cost of Philips Hue lamps",
+  "Scenes, shortcuts and a wake light",
+  "Runs without an account and without third-party servers"
+ ],
+ "isAccessibleForFree": false,
+ "publisher": {
+  "@type": "Organization",
+  "name": "Lumen Circle",
+  "url": "https://lumencircle.ch/"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I need Philips Hue to use Lumen Circle?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Lumen Circle shows and controls everything in your Apple Home app — lights, outlets, sensors. A Hue Bridge is only needed for the energy meter, because Hue lamps do not report their own consumption."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need an account or a login?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. There is no sign-in and no server. The app talks directly to HomeKit and to your own Hue Bridge on your network."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which devices does the app run on?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "iPhone, iPad, Apple Watch and Mac — one subscription covers all four. It requires iOS, iPadOS and macOS 26 or later."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How does the app measure the power use of Hue lamps?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "From the model, on/off state, brightness and colour, using real measurement curves from one per cent up to full brightness. The figures come from the open Powercalc project. For lamps without a curve the app uses estimates and marks them as such."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does Lumen Circle cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A yearly subscription, with the first four days free. What it costs where you live is shown by the App Store — the price depends on the country."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What data leaves the device?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Almost none. No account, no advertising, no analytics. The only things that go out are the App Store purchase and your lamp's model identifier, used to load the right power profile."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
@@ -46,6 +149,7 @@
       <a href="#strom">Energy</a>
       <a href="#einrichten">Setup</a>
       <a href="#preis">Price</a>
+      <a href="#fragen">Questions</a>
       <a href="privacy.html">Privacy</a>
       <a class="lang" href="../index.html" hreflang="de" lang="de">DE</a>
     </nav>
@@ -318,6 +422,40 @@
     </section>
   </div>
 </div>
+
+
+<section class="section" id="fragen" aria-labelledby="fragen-titel">
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2 id="fragen-titel">Frequently Asked Questions</h2>
+    <div class="fragen">
+      <div class="frage">
+        <h3>Do I need Philips Hue to use Lumen Circle?</h3>
+        <p>No. Lumen Circle shows and controls everything in your Apple Home app — lights, outlets, sensors. A Hue Bridge is only needed for the energy meter, because Hue lamps do not report their own consumption.</p>
+      </div>
+      <div class="frage">
+        <h3>Do I need an account or a login?</h3>
+        <p>No. There is no sign-in and no server. The app talks directly to HomeKit and to your own Hue Bridge on your network.</p>
+      </div>
+      <div class="frage">
+        <h3>Which devices does the app run on?</h3>
+        <p>iPhone, iPad, Apple Watch and Mac — one subscription covers all four. It requires iOS, iPadOS and macOS 26 or later.</p>
+      </div>
+      <div class="frage">
+        <h3>How does the app measure the power use of Hue lamps?</h3>
+        <p>From the model, on/off state, brightness and colour, using real measurement curves from one per cent up to full brightness. The figures come from the open Powercalc project. For lamps without a curve the app uses estimates and marks them as such.</p>
+      </div>
+      <div class="frage">
+        <h3>What does Lumen Circle cost?</h3>
+        <p>A yearly subscription, with the first four days free. What it costs where you live is shown by the App Store — the price depends on the country.</p>
+      </div>
+      <div class="frage">
+        <h3>What data leaves the device?</h3>
+        <p>Almost none. No account, no advertising, no analytics. The only things that go out are the App Store purchase and your lamp's model identifier, used to load the right power profile.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
