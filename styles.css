@@ -72,6 +72,29 @@ h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0
 .muted { color: var(--text-2); }
 .small { font-size: 0.92rem; color: var(--text-3); }
 
+/* App-Store-Verweis -------------------------------------------------------
+   Sieht aus wie „Abonnieren" in der App: eine gefuellte Pille im Signalton,
+   dunkle Schrift. Bewusst ohne Apples Abzeichen — wer das benutzt, muss ihr
+   Original nehmen, und ein nachgebautes waere eine Marke, die uns nicht
+   gehoert. */
+
+.store {
+  display: inline-flex; align-items: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  background: var(--signal);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.store:hover { background: var(--amber); color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .store:hover { transform: translateY(-1px); }
+}
+.store-zeile { margin: 0 0 0.9rem; }
+
+
 /* Kopf ------------------------------------------------------------------- */
 
 .top {

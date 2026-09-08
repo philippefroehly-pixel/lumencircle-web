@@ -31,8 +31,8 @@ Alternativ kann Hostinger das Repository auch selbst abholen
 
 ## Noch zu tun
 
-- Sobald die App im App Store ist: Link auf der Startseite ergaenzen und den
-  Hinweis "noch nicht im App Store" entfernen.
+- Sobald die Mac-Fassung freigegeben ist: den Satz "Die Mac-Fassung ist bei
+  Apple in Pruefung" unter dem App-Store-Knopf entfernen (beide Sprachen).
 
 ## Mail
 
