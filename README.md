@@ -29,11 +29,6 @@ finden im hPanel unter *Dateien -> FTP-Konten*.
 Alternativ kann Hostinger das Repository auch selbst abholen
 (hPanel -> *Erweitert -> Git*). Dann wird der Workflow nicht gebraucht.
 
-## Noch zu tun
-
-- Sobald die Mac-Fassung freigegeben ist: den Satz "Die Mac-Fassung ist bei
-  Apple in Pruefung" unter dem App-Store-Knopf entfernen (beide Sprachen).
-
 ## Mail
 
 `hallo@lumencircle.ch` ist ein echtes Postfach ueber **iCloud+ Eigene E-Mail-Domain**
