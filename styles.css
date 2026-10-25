@@ -70,8 +70,9 @@ h1, h2, .display {
   margin: 0;
   text-wrap: balance;
 }
-h1 { font-size: clamp(2.9rem, 6.6vw, 5.6rem); line-height: 0.98; font-weight: 200; }
+h1 { font-size: clamp(2.9rem, 6.2vw, 5.2rem); line-height: 0.98; font-weight: 200; }
 h1 .zeile { display: block; }
+@media (min-width: 62rem) { h1 .zeile { white-space: nowrap; } }
 h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1.04; margin-bottom: 1.3rem; }
 h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0 0.35rem; letter-spacing: 0; }
 
