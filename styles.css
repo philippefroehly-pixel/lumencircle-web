@@ -1,30 +1,38 @@
 /* Lumen Circle — lumencircle.ch
-   Die Seite sieht aus wie das Produkt. Farben aus AmbientPalette.aurora und
-   der Bildmarke; nichts davon ist für die Seite erfunden. Die Schrift folgt
-   der App: dünne, grosse Ziffern und Titel, ruhiger Lauftext. */
+   Die Seite sieht aus wie das Produkt: dieselbe Farbwelt (AmbientPalette
+   .aurora), derselbe Ring, dieselben dünnen Ziffern. Nichts ist für die Seite
+   erfunden — das Leuchten im Hintergrund sind die drei Farben des Rings,
+   Pfirsich, Rosé und Violett, so wie sie in der App ein Zimmer zeigen.
+
+   Kein Framework, kein Build-Schritt. Bewegung nur, wo sie etwas erklärt, und
+   nur, wenn „Bewegung reduzieren" aus ist. */
 
 :root {
-  --base: #0e0a1c;
-  --ink: #140d28;
+  --base: #07050f;
+  --ink: #120b24;
   --wash: #2a1250;
-  --text: #f4efff;
-  --text-2: #bcaae0;
-  --text-3: #a293cc;
+  --text: #f6f1ff;
+  --text-2: #c3b3e6;
+  --text-3: #9c8cc6;
   --signal: #c77dff;
   --amber: #ffb86b;
   --rose: #f2789f;
   --violet: #a97bff;
-  --arc: linear-gradient(135deg, var(--amber), var(--rose) 42%, var(--violet));
-  --rule: rgba(255, 255, 255, 0.12);
-  --surface: rgba(255, 255, 255, 0.045);
+  --arc: linear-gradient(120deg, var(--amber), var(--rose) 45%, var(--violet));
+  --rule: rgba(255, 255, 255, 0.1);
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.065);
+  --glass-edge: rgba(255, 255, 255, 0.12);
   --measure: 36rem;
   --display: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius: 28px;
   --radius-device: 26px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -33,81 +41,120 @@ body {
   color: var(--text);
   font: 400 17px/1.6 var(--body);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 a { color: var(--signal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--amber); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px;
+}
 
 img, video { max-width: 100%; height: auto; display: block; }
 
-.wrap { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+.wrap { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
 p { max-width: var(--measure); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
 
 /* Typografie ------------------------------------------------------------- */
 
 h1, h2, .display {
   font-family: var(--display);
   font-weight: 300;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin: 0;
   text-wrap: balance;
 }
-h1 { font-size: clamp(2.7rem, 7vw, 4.6rem); line-height: 1.02; }
-h2 { font-size: clamp(1.8rem, 3.8vw, 2.5rem); line-height: 1.12; margin-bottom: 1.2rem; }
+h1 { font-size: clamp(2.9rem, 6.6vw, 5.6rem); line-height: 0.98; font-weight: 200; }
+h1 .zeile { display: block; }
+h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1.04; margin-bottom: 1.3rem; }
 h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0 0.35rem; letter-spacing: 0; }
+
+/* Ein Wort im Verlauf des Rings — sparsam, einmal je Überschrift. */
+.glow {
+  background: var(--arc);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
 
 .eyebrow {
   font-family: var(--body);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-3);
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
+}
+.eyebrow.badge {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.4rem 0.85rem 0.4rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-edge);
+  background: var(--surface);
+  color: var(--text-2);
+}
+.eyebrow.badge::before {
+  content: ""; width: 0.55rem; height: 0.55rem; border-radius: 50%;
+  background: var(--arc); box-shadow: 0 0 12px var(--rose);
 }
 
-.lede { font-size: 1.25rem; line-height: 1.5; color: var(--text-2); margin: 1.2rem 0 1.8rem; }
+.lede { font-size: clamp(1.15rem, 1.6vw, 1.32rem); line-height: 1.55; color: var(--text-2); margin: 1.5rem 0 2rem; }
 .muted { color: var(--text-2); }
 .small { font-size: 0.92rem; color: var(--text-3); }
 
 /* App-Store-Verweis -------------------------------------------------------
-   Sieht aus wie „Abonnieren" in der App: eine gefuellte Pille im Signalton,
-   dunkle Schrift. Bewusst ohne Apples Abzeichen — wer das benutzt, muss ihr
-   Original nehmen, und ein nachgebautes waere eine Marke, die uns nicht
-   gehoert. */
+   Sieht aus wie „Abonnieren" in der App: eine gefüllte Pille im Signalton.
+   Bewusst ohne Apples Abzeichen — wer das benutzt, muss ihr Original nehmen,
+   und ein nachgebautes wäre eine Marke, die uns nicht gehört. */
 
 .store {
-  display: inline-flex; align-items: center;
-  padding: 0.8rem 1.6rem;
+  position: relative;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
   border-radius: 999px;
-  background: var(--signal);
-  color: var(--ink);
-  font-weight: 600;
+  background: linear-gradient(120deg, #ffcf96, var(--rose) 50%, var(--signal));
+  color: #1a0f2e;
+  font-weight: 650;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 10px 40px -10px rgba(242, 120, 159, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), filter 0.35s;
 }
-.store:hover { background: var(--amber); color: var(--ink); }
-@media (prefers-reduced-motion: no-preference) {
-  .store:hover { transform: translateY(-1px); }
-}
-.store-zeile { margin: 0 0 0.9rem; }
+.store svg { width: 1.05em; height: 1.05em; }
+.store:hover { color: #1a0f2e; filter: brightness(1.06); box-shadow: 0 16px 50px -10px rgba(242, 120, 159, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.6); }
+@media (prefers-reduced-motion: no-preference) { .store:hover { transform: translateY(-2px); } }
+.store.klein { padding: 0.55rem 1.1rem; font-size: 0.9rem; box-shadow: none; }
+.store-zeile { margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 
+.price {
+  display: inline-flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--glass-edge);
+  border-radius: 999px;
+  background: var(--surface);
+  margin: 0;
+}
+.price strong { font-family: var(--display); font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; }
+.price span { color: var(--text-2); font-size: 0.95rem; }
 
 /* Kopf ------------------------------------------------------------------- */
 
 .top {
-  position: sticky; top: 0; z-index: 10;
-  padding: 1.1rem 0;
-  background: color-mix(in oklab, var(--base) 86%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  position: sticky; top: 0; z-index: 50;
+  padding: 0.85rem 0;
+  background: color-mix(in oklab, var(--base) 72%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
   border-bottom: 1px solid var(--rule);
 }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.brand { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-.brand .mark { width: 24px; height: 24px; flex: none; }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 1.08rem; color: var(--text); text-decoration: none; letter-spacing: 0.01em; }
+.brand .mark { width: 26px; height: 26px; flex: none; }
 /* Rechtstexte zeichnen den Ring noch per CSS — soll weiter funktionieren. */
 .brand .ring {
   width: 22px; height: 22px; border-radius: 50%;
@@ -116,196 +163,365 @@ h3 { font-family: var(--body); font-size: 1.05rem; font-weight: 600; margin: 0 0
   border-bottom-color: transparent;
   transform: rotate(-35deg);
 }
-.top nav { display: flex; gap: 1.3rem; font-size: 0.95rem; }
-.top nav a { color: var(--text-2); text-decoration: none; }
+.top nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.93rem; }
+.top nav a { color: var(--text-2); text-decoration: none; transition: color 0.2s; }
 .top nav a:hover { color: var(--text); }
 .top nav .lang {
-  padding: 0.25rem 0.6rem;
+  padding: 0.28rem 0.65rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
-  color: var(--text-2);
 }
-.top nav .lang:hover { color: var(--text); border-color: var(--text-3); }
-/* Auf dem Handy bleibt vom nav nur der Sprachwechsel. */
-@media (max-width: 30rem) { .top nav a:not(.lang) { display: none; } }
+.top nav .lang:hover { border-color: var(--text-3); }
+.top nav .store { color: #1a0f2e; }
+/* Auf schmalen Bildschirmen bleiben Sprache und App Store. */
+@media (max-width: 62rem) { .top nav a:not(.lang):not(.store) { display: none; } }
+@media (max-width: 26rem) { .top nav .store { display: none; } }
+
+/* Grundlicht -------------------------------------------------------------
+   Drei weiche Flecken in den Farben des Rings, die sich kaum merklich
+   bewegen — wie das Licht der App im Raum. */
+
+.licht { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.licht i {
+  position: absolute; border-radius: 50%;
+  filter: blur(70px); opacity: 0.5;
+  will-change: transform;
+}
+.licht i:nth-child(1) { width: 46vw; height: 46vw; left: -12vw; top: -14vw; background: radial-gradient(closest-side, rgba(169, 123, 255, 0.85), transparent); }
+.licht i:nth-child(2) { width: 40vw; height: 40vw; right: -8vw; top: 6vw; background: radial-gradient(closest-side, rgba(242, 120, 159, 0.7), transparent); }
+.licht i:nth-child(3) { width: 34vw; height: 34vw; left: 30vw; top: 28vw; background: radial-gradient(closest-side, rgba(255, 184, 107, 0.5), transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .licht i:nth-child(1) { animation: schweben 26s var(--ease) infinite alternate; }
+  .licht i:nth-child(2) { animation: schweben 32s var(--ease) infinite alternate-reverse; }
+  .licht i:nth-child(3) { animation: schweben 38s var(--ease) infinite alternate; }
+}
+@keyframes schweben {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(4vw, 3vw, 0) scale(1.12); }
+}
+
+/* Feines Korn über dem Licht, damit die Verläufe nicht streifig werden. */
+.korn::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  opacity: 0.08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
 
 /* Aufmacher -------------------------------------------------------------- */
 
 .hero {
   position: relative;
-  padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 5rem);
+  min-height: min(100svh, 62rem);
+  display: grid; align-items: center;
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 5rem);
   overflow: clip;
+  isolation: isolate;
 }
 .hero .wrap {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
+  position: relative; z-index: 1;
+  display: grid; gap: 3rem; align-items: center;
   grid-template-columns: 1fr;
 }
-@media (min-width: 58rem) {
-  .hero .wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 4rem; }
+@media (min-width: 62rem) {
+  .hero .wrap { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr); gap: 3.5rem; }
 }
 
 /* Der grosse Ring: das Bedienelement der App als Licht hinter dem Aufmacher.
-   Er dreht sich langsam — ein Regler mit Weg nach oben, kein Zierrat. Wer
-   Bewegung abgeschaltet hat, bekommt ihn still. */
+   Er dreht sich langsam — ein Regler mit Weg nach oben, kein Zierrat. */
 .hero-ring {
   position: absolute;
-  right: -12vw; top: -6rem;
-  width: clamp(26rem, 52vw, 44rem);
+  right: -14vw; top: -10rem;
+  width: clamp(28rem, 58vw, 52rem);
   aspect-ratio: 1;
-  opacity: 0.32;
+  opacity: 0.22;
   pointer-events: none;
   z-index: 0;
-  animation: turn 90s linear infinite;
 }
-@keyframes turn { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .hero-ring { animation: none; } }
-.hero .wrap { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: no-preference) { .hero-ring { animation: drehen 120s linear infinite; } }
+@keyframes drehen { to { transform: rotate(360deg); } }
 
-.price {
-  display: inline-flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap;
-  padding: 0.7rem 1.2rem;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: var(--surface);
-  margin-bottom: 1rem;
-}
-.price strong { font-family: var(--display); font-weight: 400; font-size: 1.25rem; letter-spacing: -0.01em; }
-.price span { color: var(--text-2); font-size: 0.95rem; }
-
-/* Gerätebilder ------------------------------------------------------------
-   Das Bild bekommt seine Breite vom Behälter, die Höhe rechnet der Browser
-   aus dem Seitenverhältnis. Vorher blieb die Höhe aus dem HTML stehen,
-   während die Breite schrumpfte — das war das Verzogene. */
-.device { margin-inline: auto; width: 100%; }
-.device.phone { max-width: 300px; }
-.device.tablet { max-width: 540px; }
-.device img, .device video {
+.hero-geraet { position: relative; margin: 0; }
+.hero-geraet img {
   width: 100%;
-  height: auto;
-  border-radius: var(--radius-device);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: #000;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.6);
+  filter: drop-shadow(0 50px 70px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 80px rgba(169, 123, 255, 0.22));
 }
-.device.tablet img { border-radius: 18px; }
+/* Unter dem Gerät das Band der App — die Farben der Lampen, die brennen. */
+.hero-geraet::after {
+  content: ""; position: absolute; left: 12%; right: 12%; bottom: 1%; height: 10%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 184, 107, 0.45), rgba(242, 120, 159, 0.2) 50%, transparent 75%);
+  filter: blur(30px); z-index: -1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-geraet img { animation: schwebt 9s ease-in-out infinite alternate; }
+}
+@keyframes schwebt { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+
+.geraete-liste {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.6rem 0 0; padding: 0; list-style: none;
+}
+.geraete-liste li {
+  padding: 0.35rem 0.8rem; border-radius: 999px;
+  border: 1px solid var(--rule); background: var(--surface);
+  font-size: 0.85rem; color: var(--text-2);
+}
+.geraete-liste li.neu { border-color: rgba(242, 120, 159, 0.45); color: var(--text); }
+.geraete-liste li.neu::after { content: " · neu"; color: var(--rose); }
 
 /* Abschnitte ------------------------------------------------------------- */
 
-.section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
-.section + .section { border-top: 1px solid var(--rule); }
+.section { position: relative; padding: clamp(4.5rem, 10vw, 8.5rem) 0; isolation: isolate; }
+.section.eng { padding-block: clamp(3rem, 7vw, 5.5rem); }
+.trenner { height: 1px; background: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent); border: 0; margin: 0; }
 
-.two { display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1fr; }
-@media (min-width: 52rem) { .two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; } }
-.two .device { justify-self: center; }
+.kopf { max-width: 48rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.kopf.mitte { margin-inline: auto; text-align: center; }
+.kopf.mitte p { margin-inline: auto; }
 
-/* Drei Geräte: die Struktur der App, nicht der Seite. */
-.worlds { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-top: 2rem; }
-/* Vier Geräte: erst zwei nebeneinander, ab genug Breite alle vier. Bei drei
-   Spalten stünde das vierte allein in einer zweiten Reihe. */
-@media (min-width: 52rem) { .worlds { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; } }
-@media (min-width: 74rem) { .worlds { grid-template-columns: repeat(4, 1fr); gap: 2rem; } }
-.world { padding-top: 1.2rem; position: relative; }
-.world::before {
-  content: ""; position: absolute; left: 0; top: 0;
-  width: 3.5rem; height: 2px; background: var(--arc); border-radius: 2px;
+.two { display: grid; gap: 3rem; align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 5rem; } }
+
+/* Glas ------------------------------------------------------------------- */
+
+.glas {
+  position: relative;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--glass-edge);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 80px -40px rgba(0, 0, 0, 0.7);
 }
-.world .eyebrow { margin-bottom: 0.5rem; }
-/* Ein Fenster je Gerät, gleiches Format für alle drei — gezeigt wird der obere
-   Teil des Bildschirms: Uhr, Ringe, das, was man von weitem liest. */
-.world .shot {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: var(--ink);
-  margin-bottom: 1.4rem;
+
+/* Gerätebilder ------------------------------------------------------------
+   Das Bild bekommt seine Breite vom Behälter, die Höhe rechnet der Browser
+   aus dem Seitenverhältnis. iPhone, iPad und Mac tragen einen gezeichneten
+   Rahmen; das iPhone Duo steht in Apples eigenem Gerätebild. */
+
+.device { margin-inline: auto; width: 100%; position: relative; }
+.device.phone { max-width: 320px; }
+.device.tablet { max-width: 560px; }
+.device img, .device video {
+  width: 100%; height: auto;
+  border-radius: var(--radius-device);
+  background: #000;
 }
-.world .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 0; border: 0; box-shadow: none; }
-/* Untereinander statt nebeneinander (Handy): dann kein Ausschnitt, sondern
-   der ganze Bildschirm in Telefonbreite — ein 4:5-Fenster auf ein hohes Bild
-   zeigte dort vor allem leeren Verlauf. */
-@media (max-width: 51.99rem) {
-  .world .shot { aspect-ratio: auto; max-width: 320px; }
-  .world .shot img { height: auto; object-fit: initial; }
-  .world .shot-ring { aspect-ratio: 4 / 5; }
+.rahmen {
+  padding: 10px;
+  border-radius: calc(var(--radius-device) + 10px);
+  background: linear-gradient(145deg, #3a3348, #17131f 40%, #2a2436);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 50px 90px -30px rgba(0, 0, 0, 0.8),
+    0 0 90px -20px rgba(169, 123, 255, 0.25);
 }
-/* Der Mac ist quer, die anderen drei sind hoch. Statt die Reihe zu brechen,
-   liegt das Fenster mittig im selben 4:5-Rahmen — auf dem Grundton der App,
-   damit der Rand nicht als Fehler gelesen wird. */
-.world .shot-mac { display: grid; place-items: center; background: var(--ink); }
-.world .shot-mac img { width: 100%; height: auto; object-fit: contain; }
-.world .shot-ring { display: grid; place-items: center; background: radial-gradient(60% 60% at 50% 45%, rgba(199,125,255,0.18), transparent 70%), var(--ink); }
-.world .shot-ring svg { width: 58%; height: auto; aspect-ratio: 1; }
-.world h3 { font-family: var(--display); font-weight: 400; font-size: 1.5rem; letter-spacing: -0.01em; }
-.world p { color: var(--text-2); margin: 0.5rem 0 0; }
+.rahmen.phone { border-radius: 52px; padding: 11px; }
+.rahmen.phone img, .rahmen.phone video { border-radius: 42px; }
+.rahmen.tablet { border-radius: 34px; padding: 14px; }
+.rahmen.tablet img { border-radius: 22px; }
+.rahmen.uhr { border-radius: 30%; padding: 14px; max-width: 240px; }
+.rahmen.uhr img { border-radius: 26%; }
+.rahmen.mac { border-radius: 20px; padding: 10px; }
+.rahmen.mac img { border-radius: 11px; }
+
+/* Vier Geräte: eine Bento-Fläche ---------------------------------------- */
+
+.bento { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+@media (min-width: 56rem) {
+  .bento { grid-template-columns: repeat(6, 1fr); grid-auto-rows: minmax(0, auto); }
+  .bento .gross { grid-column: span 3; grid-row: span 2; }
+  .bento .mittel { grid-column: span 3; }
+  .bento .breit { grid-column: span 6; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; gap: 3rem; }
+  .bento .breit .bild { margin-top: 0; }
+}
+.kachel { padding: clamp(1.5rem, 3vw, 2.4rem); overflow: hidden; display: flex; flex-direction: column; gap: 1.2rem; }
+.kachel h3 { font-family: var(--display); font-weight: 300; font-size: clamp(1.6rem, 2.6vw, 2.1rem); letter-spacing: -0.02em; margin: 0; }
+.kachel p { color: var(--text-2); margin: 0; }
+.kachel .eyebrow { margin-bottom: 0.4rem; }
+.kachel.breit h3 + p { margin-top: 1rem; }
+.kachel .bild { margin-top: auto; display: grid; place-items: center; }
+.kachel.gross .bild { padding-top: 1rem; }
+.kachel.gross .device.tablet { max-width: 420px; }
+/* Das iPad zweimal: vorn das Dashboard, dahinter dasselbe Panel in Ruhe. */
+.stapel { display: grid; width: 100%; padding: 1rem 0 0.5rem; }
+.stapel > * { grid-area: 1 / 1; }
+.stapel .hinten { transform: translate(-16%, -4%) scale(0.84) rotate(-5deg); opacity: 0.85; }
+.stapel .vorne { transform: translate(12%, 6%); }
+@media (max-width: 40rem) { .stapel .hinten { transform: translate(-10%, -3%) scale(0.86) rotate(-4deg); } .stapel .vorne { transform: translate(6%, 5%); } }
+.kachel .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: end; }
+.kachel .zwei .rahmen.uhr { max-width: 100%; }
+
+/* Duo: Kapitel mit festem Gerät ------------------------------------------
+   Links laufen die vier Haltungen durch, rechts bleibt das Gerät stehen und
+   wechselt sein Bild. Unter 56rem einfach untereinander. */
+
+.duo { overflow: clip; }
+.duo .licht i:nth-child(1) { left: auto; right: -10vw; top: 10%; }
+.duo-buehne { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 56rem) {
+  .duo-buehne { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 4rem; align-items: start; }
+}
+.duo-schritte { display: grid; gap: 2rem; }
+@media (min-width: 56rem) { .duo-schritte { gap: 0; } }
+.schritt { padding: 1.6rem 1.6rem 1.7rem; }
+@media (min-width: 56rem) {
+  .schritt { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; padding: 0 0 0 1.6rem; border: 0; background: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; border-left: 2px solid var(--rule); border-radius: 0; transition: border-color 0.5s var(--ease); }
+  .schritt.ist-aktiv { border-left-color: var(--rose); }
+  .schritt .schritt-bild { display: none; }
+}
+.schritt .nummer {
+  font-family: var(--display); font-weight: 200; font-size: 0.95rem; letter-spacing: 0.12em;
+  color: var(--text-3); margin: 0 0 0.6rem;
+}
+.schritt h3 { font-family: var(--display); font-weight: 300; font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: -0.02em; margin: 0 0 0.8rem; }
+.schritt p { color: var(--text-2); margin: 0; }
+.schritt-bild { margin-top: 1.4rem; }
+.schritt-bild img { margin-inline: auto; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55)); }
+.schritt-bild img.hoch { max-width: 70%; }
+
+.duo-geraet { display: none; }
+@media (min-width: 56rem) {
+  .duo-geraet { display: block; position: sticky; top: 12vh; height: 76vh; }
+  .duo-geraet figure { position: absolute; inset: 0; margin: 0; display: grid; place-items: center; opacity: 0; transform: scale(0.96) translateY(14px); transition: opacity 0.7s var(--ease), transform 0.9s var(--ease); }
+  .duo-geraet figure.ist-aktiv { opacity: 1; transform: none; }
+  .duo-geraet img { max-height: 100%; width: auto; max-width: 100%; filter: drop-shadow(0 50px 60px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 70px rgba(169, 123, 255, 0.18)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .duo-geraet figure { transition: none; transform: none; }
+}
 
 /* Stichpunkte, die man überfliegt. */
-.points { list-style: none; margin: 1.4rem 0 0; padding: 0; max-width: var(--measure); }
-.points li { position: relative; padding-left: 1.4rem; margin-bottom: 0.7rem; color: var(--text-2); }
+.points { list-style: none; margin: 1.6rem 0 0; padding: 0; max-width: var(--measure); }
+.points li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; color: var(--text-2); }
 .points li::before {
-  content: ""; position: absolute; left: 0; top: 0.72em;
-  width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--arc);
+  content: ""; position: absolute; left: 0; top: 0.68em;
+  width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--arc);
+  box-shadow: 0 0 10px rgba(242, 120, 159, 0.5);
 }
 .points strong { color: var(--text); font-weight: 600; }
 
 .note {
-  border-left: 2px solid var(--amber);
-  padding-left: 1rem;
+  position: relative;
+  padding: 1.1rem 1.3rem 1.1rem 1.4rem;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
   color: var(--text-2);
-  margin-top: 1.4rem;
+  margin-top: 1.8rem;
 }
+.note::before { content: ""; position: absolute; left: 0; top: 1rem; bottom: 1rem; width: 3px; border-radius: 3px; background: var(--arc); }
 
-/* Funktionen als Begriff → Erklärung. */
-.features { display: grid; gap: 1.6rem 3rem; grid-template-columns: 1fr; margin: 2rem 0 0; }
-@media (min-width: 52rem) { .features { grid-template-columns: 1fr 1fr; } }
-.features div { border-top: 1px solid var(--rule); padding-top: 1rem; }
-.features dt { font-weight: 600; margin: 0 0 0.3rem; }
-.features dd { margin: 0; color: var(--text-2); }
+/* Kennzahlen ------------------------------------------------------------ */
+
+.zahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1rem; margin-top: 2.2rem; }
+.zahl { padding: 1.3rem 1.4rem; }
+.zahl b { display: block; font-family: var(--display); font-weight: 200; font-size: 2.3rem; line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.45rem; }
+.zahl span { color: var(--text-2); font-size: 0.92rem; }
+
+/* Funktionen als Kacheln ------------------------------------------------- */
+
+.features { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 0; }
+@media (min-width: 40rem) { .features { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 66rem) { .features { grid-template-columns: repeat(4, 1fr); } }
+.features > div { padding: 1.5rem 1.4rem 1.6rem; transition: transform 0.4s var(--ease), border-color 0.4s; }
+@media (prefers-reduced-motion: no-preference) {
+  .features > div:hover { transform: translateY(-4px); border-color: rgba(242, 120, 159, 0.35); }
+}
+.features .zeichen {
+  width: 2.6rem; height: 2.6rem; border-radius: 0.9rem; display: grid; place-items: center;
+  background: linear-gradient(140deg, rgba(255, 184, 107, 0.22), rgba(169, 123, 255, 0.22));
+  border: 1px solid var(--glass-edge); margin-bottom: 1rem;
+}
+.features .zeichen svg { width: 1.3rem; height: 1.3rem; stroke: var(--text); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.features dt { font-weight: 600; margin: 0 0 0.4rem; }
+.features dd { margin: 0; color: var(--text-2); font-size: 0.96rem; }
 
 /* Einrichten: eine echte Reihenfolge, deshalb Ziffern. */
-.steps { list-style: none; counter-reset: step; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.6rem; max-width: 44rem; }
-.steps li { counter-increment: step; display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; align-items: start; }
+.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 56rem) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.steps li { counter-increment: step; padding: 1.8rem 1.6rem; }
 .steps li::before {
   content: counter(step);
-  font-family: var(--display); font-weight: 200; font-size: 3rem; line-height: 1;
-  color: var(--signal);
+  display: block;
+  font-family: var(--display); font-weight: 200; font-size: 3.6rem; line-height: 1;
+  background: var(--arc); -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 1rem;
   font-variant-numeric: tabular-nums;
 }
-.steps p { margin: 0.35rem 0 0; color: var(--text-2); }
+.steps h3 { font-size: 1.1rem; }
+.steps p { margin: 0.4rem 0 0; color: var(--text-2); }
 
-/* Häufige Fragen ----------------------------------------------------------
-   Zwei Spalten, sobald Platz ist. Jede Frage bekommt eine dünne Linie oben —
-   dasselbe Mittel wie bei den vier Geräte-Welten, damit der Abschnitt nicht
-   nach angeklebtem SEO-Text aussieht, sondern zur Seite gehört. */
+/* Preis und Datenschutz -------------------------------------------------- */
 
-.fragen { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-top: 2rem; }
-@media (min-width: 52rem) { .fragen { grid-template-columns: 1fr 1fr; gap: 2.4rem 3rem; } }
-.frage { padding-top: 1.1rem; border-top: 1px solid var(--rule); }
-.frage h3 { margin-bottom: 0.5rem; }
-.frage p { margin: 0; color: var(--text-2); max-width: 34rem; }
+.split { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+@media (min-width: 56rem) { .split { grid-template-columns: 1fr 1fr; } }
+.split > section { padding: clamp(1.8rem, 3.5vw, 2.8rem); }
+.split h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
 
-.split { display: grid; gap: 3rem; grid-template-columns: 1fr; }
-@media (min-width: 52rem) { .split { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+/* Häufige Fragen: zum Aufklappen ----------------------------------------- */
+
+.fragen { display: grid; gap: 0.8rem; max-width: 52rem; margin-inline: auto; }
+.frage { padding: 0; border-radius: 20px; }
+.frage summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  font-weight: 600;
+}
+.frage summary::-webkit-details-marker { display: none; }
+.frage summary::after {
+  content: ""; flex: none; width: 0.65rem; height: 0.65rem;
+  border-right: 2px solid var(--text-2); border-bottom: 2px solid var(--text-2);
+  transform: rotate(45deg) translateY(-2px); transition: transform 0.3s var(--ease);
+}
+.frage[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.frage p { margin: 0; padding: 0 1.4rem 1.3rem; color: var(--text-2); max-width: 46rem; }
+
+/* Schluss ---------------------------------------------------------------- */
+
+.schluss { text-align: center; overflow: clip; }
+.schluss .ring-gross { width: min(26rem, 70vw); aspect-ratio: 1; margin: 0 auto 2rem; display: block; filter: drop-shadow(0 0 60px rgba(242, 120, 159, 0.35)); }
+@media (prefers-reduced-motion: no-preference) { .schluss .ring-gross { animation: drehen 60s linear infinite; } }
+.schluss h2 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 200; }
+.schluss p { margin-inline: auto; }
+.schluss .store-zeile { justify-content: center; margin-top: 2rem; }
+
+/* Erscheinen beim Scrollen ----------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .zeigen { opacity: 0; transform: translateY(26px); transition: opacity 0.9s var(--ease), transform 1.1s var(--ease); }
+  .js .zeigen.ist-da { opacity: 1; transform: none; }
+  .js .zeigen.spaet { transition-delay: 0.12s; }
+  .js .zeigen.spaeter { transition-delay: 0.24s; }
+  /* Der Aufmacher wartet auf nichts: Er geht beim Laden auf, nicht erst,
+     wenn das Skript ihn sieht. */
+  .js .hero .zeigen { opacity: 1; transform: none; transition: none; animation: aufgehen 1s var(--ease) both; }
+  .js .hero .zeigen.spaet { animation-delay: 0.12s; }
+  .js .hero .zeigen.spaeter { animation-delay: 0.24s; }
+}
+@keyframes aufgehen { from { opacity: 0; transform: translateY(26px); } }
 
 /* Fuss ------------------------------------------------------------------- */
 
 footer {
-  padding: 2.5rem 0 3.5rem;
+  padding: 3rem 0 3.5rem;
   border-top: 1px solid var(--rule);
   color: var(--text-3);
   font-size: 0.92rem;
 }
+footer .fuss { display: grid; gap: 1.5rem; }
+@media (min-width: 52rem) { footer .fuss { grid-template-columns: 1fr auto; align-items: start; } }
 footer nav { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
-footer p { max-width: none; }
+footer nav a { color: var(--text-2); text-decoration: none; }
+footer nav a:hover { color: var(--text); }
+footer p { max-width: 46rem; }
 .copyright { margin: 1rem 0 0; color: var(--text-3); }
 
 /* Rechtstexte ------------------------------------------------------------ */
 
-.legal h1 { font-size: clamp(2rem, 5vw, 2.6rem); }
+.legal h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 300; }
 .legal h2 { font-size: 1.35rem; margin-top: 2.4rem; }
 .legal p, .legal li { color: var(--text-2); }
 .legal dt { font-weight: 600; color: var(--text); margin-top: 1rem; }

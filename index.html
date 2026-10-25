@@ -2,26 +2,29 @@
 <html lang="de-CH">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lumen Circle — dein Zuhause auf einen Blick</title>
-<meta name="description" content="Wandpanel für Apple Home und Philips Hue: Räume statt Geräte, Licht am Ring, Hue-Stromverbrauch live. Für iPad, iPhone, Apple Watch und Mac. Vier Tage gratis.">
+<meta name="description" content="Wandpanel für Apple Home und Philips Hue: Räume statt Geräte, Licht am Ring, Hue-Stromverbrauch live. Für iPad, iPhone, iPhone Duo, Apple Watch und Mac. Vier Tage gratis.">
 <meta property="og:title" content="Lumen Circle — dein Zuhause auf einen Blick">
-<meta property="og:description" content="Räume statt Geräte. Licht mit einem Ring. Der Stromverbrauch deiner Hue-Lampen live. Für Apple Home und Philips Hue, auf iPad, iPhone, Apple Watch und Mac.">
+<meta property="og:description" content="Räume statt Geräte. Licht mit einem Ring. Der Stromverbrauch deiner Hue-Lampen live. Für Apple Home und Philips Hue, auf iPad, iPhone, iPhone Duo, Apple Watch und Mac.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lumencircle.ch">
-<meta property="og:image" content="https://lumencircle.ch/assets/ipad.png">
+<meta property="og:image" content="https://lumencircle.ch/assets/og-de.jpg">
 <meta property="og:site_name" content="Lumen Circle">
 <meta property="og:locale" content="de_CH">
 <meta property="og:locale:alternate" content="en_US">
-<meta property="og:image:alt" content="Lumen Circle auf einem iPad an der Wand: grosse Uhrzeit, darunter die Räume mit ihren Lichtringen.">
-<meta property="og:image:width" content="1032">
-<meta property="og:image:height" content="1376">
+<meta property="og:image:alt" content="Lumen Circle auf dem iPhone Duo, halb aufgeklappt wie ein kleiner Laptop: oben gross die Uhrzeit und ein Band in den Farben der Lampen, unten Szenen und Räume.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lumen Circle — dein Zuhause auf einen Blick">
-<meta name="twitter:description" content="Räume statt Geräte. Licht mit einem Ring. Der Stromverbrauch deiner Hue-Lampen live. Für Apple Home und Philips Hue, auf iPad, iPhone, Apple Watch und Mac.">
-<meta name="twitter:image" content="https://lumencircle.ch/assets/ipad.png">
+<meta name="twitter:description" content="Räume statt Geräte. Licht mit einem Ring. Der Stromverbrauch deiner Hue-Lampen live. Für Apple Home und Philips Hue, auf iPad, iPhone, iPhone Duo, Apple Watch und Mac.">
+<meta name="twitter:image" content="https://lumencircle.ch/assets/og-de.jpg">
 <meta name="apple-itunes-app" content="app-id=6808305525">
-<meta name="theme-color" content="#0e0a1c">
+<meta name="theme-color" content="#07050f">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400&display=swap">
@@ -29,7 +32,9 @@
 <link rel="alternate" hreflang="en" href="https://lumencircle.ch/en/">
 <link rel="alternate" hreflang="x-default" href="https://lumencircle.ch/">
 <link rel="canonical" href="https://lumencircle.ch/">
-<link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="assets/duo-tisch-de.webp" type="image/webp">
+<link rel="stylesheet" href="styles.css?v=2026-10-25">
+<script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -45,17 +50,19 @@
   "de",
   "en"
  ],
- "image": "https://lumencircle.ch/assets/ipad.png",
+ "image": "https://lumencircle.ch/assets/og-de.jpg",
  "screenshot": [
-  "https://lumencircle.ch/assets/ipad.png",
-  "https://lumencircle.ch/assets/dashboard.png",
-  "https://lumencircle.ch/assets/strom.png"
+  "https://lumencircle.ch/assets/duo-tisch-de.webp",
+  "https://lumencircle.ch/assets/ipad-de.webp",
+  "https://lumencircle.ch/assets/iphone-de.webp",
+  "https://lumencircle.ch/assets/strom.webp"
  ],
  "featureList": [
   "Wandpanel für Apple Home auf dem iPad",
   "Räume statt Geräte, gesteuert über einen Ring",
   "Stromverbrauch und Kosten von Philips Hue-Lampen",
-  "Szenen, Kurzbefehle und Weckicht",
+  "Szenen, Kurzbefehle und Wecklicht",
+  "Für das iPhone Duo gemacht: zugeklappt, aufgeklappt und halb offen",
   "Läuft ohne Konto und ohne fremde Server"
  ],
  "isAccessibleForFree": false,
@@ -92,7 +99,7 @@
    "name": "Auf welchen Geräten läuft die App?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Auf iPhone, iPad, Apple Watch und Mac — ein Abo für alle vier. Vorausgesetzt sind iOS, iPadOS und macOS 26 oder neuer."
+    "text": "Auf iPhone, iPad, Apple Watch und Mac — ein Abo für alle vier. Vorausgesetzt sind iOS, iPadOS und macOS 26 oder neuer. Auf dem iPhone Duo nutzt die App beide Bildschirme."
    }
   },
   {
@@ -136,6 +143,7 @@
       <circle cx="512" cy="512" r="290" fill="none" stroke="#fff" stroke-opacity="0.10" stroke-width="104"/>
       <path d="M 512 222 A 290 290 0 1 1 243.1 403.4" fill="none" stroke="url(#arc)" stroke-width="104" stroke-linecap="round"/>
     </symbol>
+    <symbol id="apfel" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.9zM14 5.3c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></symbol>
   </defs>
 </svg>
 
@@ -146,60 +154,138 @@
       <span>Lumen Circle</span>
     </a>
     <nav aria-label="Seite">
+      <a href="#duo">iPhone Duo</a>
+      <a href="#regler">Ring</a>
       <a href="#strom">Strom</a>
       <a href="#einrichten">Einrichten</a>
       <a href="#preis">Preis</a>
       <a href="#fragen">Fragen</a>
-      <a href="datenschutz.html">Datenschutz</a>
       <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
+      <a class="store klein" href="https://apps.apple.com/app/id6808305525">App Store</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="hero" aria-labelledby="titel">
+<section class="hero korn" aria-labelledby="titel">
+  <div class="licht" aria-hidden="true"><i></i><i></i><i></i></div>
   <svg class="hero-ring" aria-hidden="true"><use href="#ring"/></svg>
   <div class="wrap">
     <div>
-      <p class="eyebrow">Für Apple Home und Philips Hue</p>
-      <h1 id="titel">Dein Zuhause auf einen Blick.</h1>
-      <p class="lede">
+      <p class="eyebrow badge zeigen">Für Apple Home und Philips Hue</p>
+      <h1 id="titel" class="zeigen"><span class="zeile">Dein Zuhause</span> <span class="zeile glow">auf einen Blick.</span></h1>
+      <p class="lede zeigen spaet">
         Ein iPad an der Wand, das du auch aus zwei Metern Entfernung noch
         mühelos abliest. Das iPhone als Fernbedienung in der Tasche, die Apple
         Watch als präziser Drehregler am Handgelenk und der Mac als diskretes
         Fenster neben der Arbeit.
       </p>
-      <p class="price">
-        <strong>Ein Jahresabo</strong>
-        <span>die ersten vier Tage komplett kostenlos</span>
-      </p>
-      <p class="store-zeile">
-        <a class="store" href="https://apps.apple.com/app/id6808305525">Im App Store laden</a>
-      </p>
-      <p class="small">
-        Für iPhone, iPad, Apple Watch und Mac.
+      <div class="store-zeile zeigen spaeter">
+        <a class="store" href="https://apps.apple.com/app/id6808305525">
+          <svg aria-hidden="true"><use href="#apfel"/></svg>Im App Store laden
+        </a>
+        <p class="price">
+          <strong>Ein Jahresabo</strong>
+          <span>die ersten vier Tage komplett kostenlos</span>
+        </p>
+      </div>
+      <ul class="geraete-liste zeigen spaeter" aria-label="Läuft auf">
+        <li>iPhone</li>
+        <li class="neu">iPhone Duo</li>
+        <li>iPad</li>
+        <li>Apple Watch</li>
+        <li>Mac</li>
+      </ul>
+    </div>
+    <figure class="hero-geraet zeigen spaet">
+      <img src="assets/duo-tisch-de.webp" width="1800" height="1361" fetchpriority="high"
+           alt="Lumen Circle auf dem iPhone Duo, halb aufgeklappt wie ein kleiner Laptop: oben gross die Uhrzeit 19:30 und ein leuchtendes Band in den Farben der Lampen, die gerade brennen, unten die Szenen und die Räume.">
+    </figure>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<section class="section duo" id="duo" aria-labelledby="duo-titel">
+  <div class="licht" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <div class="kopf zeigen">
+      <p class="eyebrow badge">Neu fürs iPhone Duo</p>
+      <h2 id="duo-titel">Ein Zuhause, das <span class="glow">mitklappt.</span></h2>
+      <p class="lede">
+        Zugeklappt die Fernbedienung, aufgeklappt das Panel. Und beim Klappen
+        bleibt der Raum, den du gerade ansiehst, genau dort, wo er war.
       </p>
     </div>
-    <div class="device tablet">
-      <img src="assets/ipad.png" width="1032" height="1376"
-           alt="Lumen Circle auf einem iPad: grosse Uhrzeit, darunter die Räume mit ihren Lichtringen, Temperatur und Luft je Raum.">
+
+    <div class="duo-buehne">
+      <div class="duo-schritte">
+        <article class="schritt glas ist-aktiv">
+          <p class="nummer">01 · Zugeklappt</p>
+          <h3>Die Fernbedienung.</h3>
+          <p>
+            Räume statt Geräteliste, mit einem Daumen bedient. Die Szenen
+            liegen rechts in der Leiste, genau unter dem Daumen — Uhrzeit,
+            Netz und Einstellungen gleich darüber.
+          </p>
+          <div class="schritt-bild"><img class="hoch" src="assets/duo-zu-de.webp" width="1100" height="1536" loading="lazy" alt="Das zugeklappte iPhone Duo: links die Räume mit ihren Lichtringen, rechts in der Leiste Uhrzeit, Einstellungen und die Szenen als Symbole."></div>
+        </article>
+        <article class="schritt glas">
+          <p class="nummer">02 · Aufgeklappt</p>
+          <h3>Zwei Spalten, wie am iPad.</h3>
+          <p>
+            Die Räume verteilen sich auf zwei Spalten, die Kacheln bleiben
+            gleich gross. Klappst du wieder zu, steht der Raum, den du eben
+            angesehen hast, auf derselben Höhe — nichts springt weg.
+          </p>
+          <div class="schritt-bild"><img src="assets/duo-offen-de.webp" width="1800" height="1290" loading="lazy" alt="Das aufgeklappte iPhone Duo im Querformat: die Räume in zwei Spalten, rechts die Leiste mit Uhrzeit, Einstellungen und Szenen."></div>
+        </article>
+        <article class="schritt glas">
+          <p class="nummer">03 · Der Ring</p>
+          <h3>Mitten auf dem grossen Bildschirm.</h3>
+          <p>
+            Ein Tipp zieht den Ring gross auf, ein Zug regelt alle Leuchten des
+            Raums. Halb aufgeklappt rückt er auf die Seite, die du angetippt
+            hast — nie in den Falz.
+          </p>
+          <div class="schritt-bild"><img src="assets/duo-ring-de.webp" width="1600" height="1147" loading="lazy" alt="Auf dem aufgeklappten iPhone Duo ist der Ring des Wohnzimmers gross aufgezogen: 64 Prozent, der Bogen leuchtet von Pfirsich über Rosé nach Violett."></div>
+        </article>
+        <article class="schritt glas">
+          <p class="nummer">04 · Halb offen</p>
+          <h3>Die Lichtuhr auf dem Nachttisch.</h3>
+          <p>
+            Stell das Duo auf wie einen kleinen Laptop. Oben stehen gross die
+            Uhrzeit und ein Band in den Farben der Lampen, die gerade brennen.
+            Unten liegen Szenen und Räume, griffbereit.
+          </p>
+          <div class="schritt-bild"><img src="assets/duo-tisch-de.webp" width="1800" height="1361" loading="lazy" alt="Das iPhone Duo halb aufgeklappt: oben Uhrzeit und Lichtband, unten Szenen und Räume."></div>
+        </article>
+      </div>
+      <div class="duo-geraet" aria-hidden="true">
+        <figure class="ist-aktiv"><img src="assets/duo-zu-de.webp" width="1100" height="1536" alt=""></figure>
+        <figure><img src="assets/duo-offen-de.webp" width="1800" height="1290" alt="" loading="lazy"></figure>
+        <figure><img src="assets/duo-ring-de.webp" width="1600" height="1147" alt="" loading="lazy"></figure>
+        <figure><img src="assets/duo-tisch-de.webp" width="1800" height="1361" alt=""></figure>
+      </div>
     </div>
   </div>
 </section>
 
+<hr class="trenner">
+
 <section class="section" aria-labelledby="geraete">
   <div class="wrap">
-    <p class="eyebrow">Vier Geräte, ein Zuhause</p>
-    <h2 id="geraete">Jedes Gerät macht genau das, was es am besten kann.</h2>
-    <div class="worlds">
-      <div class="world">
-        <div class="shot">
-          <img src="assets/ipad-ruhe.png" width="1032" height="1376" loading="lazy"
-               alt="Das iPad in Ruhelage: grosse Uhrzeit, Datum, je Raum Temperatur und Luft, und welche Räume Licht haben.">
+    <div class="kopf zeigen">
+      <p class="eyebrow">Vier Geräte, ein Zuhause</p>
+      <h2 id="geraete">Jedes Gerät macht genau das, was es <span class="glow">am besten kann.</span></h2>
+    </div>
+    <div class="bento">
+      <article class="kachel glas gross zeigen">
+        <div>
+          <p class="eyebrow">iPad</p>
+          <h3>Das Wandpanel</h3>
         </div>
-        <p class="eyebrow">iPad</p>
-        <h3>Das Wandpanel</h3>
         <p>
           Läuft rund um die Uhr. Es zeigt dir Räume statt unzähliger
           Einzelgeräte, dazu Temperatur, Luftqualität und den aktuellen
@@ -210,57 +296,85 @@
           Leistung. Nichts brennt sich in den Bildschirm ein, nachts blendet
           absolut nichts.
         </p>
-      </div>
-      <div class="world">
-        <div class="shot">
-          <img src="assets/dashboard.png" width="759" height="1650" loading="lazy"
-               alt="Das iPhone-Dashboard: Uhrzeit, Szenen, ein Chip mit Leistung und Monatskosten, darunter die Räume mit ihren Lichtringen.">
+        <div class="bild">
+          <div class="stapel">
+            <div class="device tablet rahmen tablet hinten">
+              <img src="assets/ipad-ruhe-de.webp" width="1032" height="1376" loading="lazy"
+                   alt="Dasselbe iPad nach einer Minute ohne Berührung: grosse Uhrzeit, Datum, Aussentemperatur, je Raum Temperatur und Luft, und wo noch Licht brennt.">
+            </div>
+            <div class="device tablet rahmen tablet vorne">
+              <img src="assets/ipad-de.webp" width="1032" height="1376" loading="lazy"
+                 alt="Lumen Circle auf einem iPad: grosse Uhrzeit 19:30, die Szenen, darunter die Räume mit ihren Lichtringen, Temperatur und Luft je Raum.">
+            </div>
+          </div>
         </div>
-        <p class="eyebrow">iPhone</p>
-        <h3>Die Fernbedienung</h3>
+      </article>
+      <article class="kachel glas mittel zeigen spaet">
+        <div>
+          <p class="eyebrow">iPhone</p>
+          <h3>Die Fernbedienung</h3>
+        </div>
         <p>
           Dasselbe vertraute Bild direkt in deiner Hand. Ein kurzes Tippen
           öffnet den Steuerungsring, ein Wisch dimmt das Licht im ganzen Raum.
           Und falls du gehst und das Licht noch brennt, erinnert dich eine kurze
           Mitteilung daran.
         </p>
-      </div>
-      <div class="world">
-        <div class="shot shot-ring" aria-hidden="true">
-          <svg><use href="#ring"/></svg>
+        <div class="bild">
+          <div class="device phone rahmen phone" style="max-width:250px">
+            <img src="assets/iphone-de.webp" width="660" height="1435" loading="lazy"
+                 alt="Das iPhone-Dashboard: Uhrzeit, Szenen, die Statuszeile, darunter die Räume mit ihren Lichtringen.">
+          </div>
         </div>
-        <p class="eyebrow">Apple Watch</p>
-        <h3>Der Drehregler</h3>
-        <p>
-          Der Ring füllt das gesamte Display, die Digitale Krone wird zum
-          Dimmer. Jeder Schritt rastet spürbar ein – ein Prozent pro Klick.
-          Kein mühsames Zielen mit dem Daumen, kein Finger, der den halben
-          Bildschirm verdeckt. Ein Blick aufs Zifferblatt reicht, um zu sehen,
-          ob noch irgendwo Licht brennt.
-        </p>
-      </div>
-      <div class="world">
-        <div class="shot shot-mac">
-          <img src="assets/mac.png" width="1280" height="800" loading="lazy"
-               alt="Lumen Circle auf dem Mac: ein Fenster mit grosser Uhrzeit, den Szenen und darunter den Räumen mit ihren Lichtringen.">
+      </article>
+      <article class="kachel glas mittel zeigen spaeter">
+        <div class="zwei">
+          <div>
+            <p class="eyebrow">Apple Watch</p>
+            <h3>Der Drehregler</h3>
+            <p>
+              Der Ring füllt das gesamte Display, die Digitale Krone wird zum
+              Dimmer. Jeder Schritt rastet spürbar ein – ein Prozent pro Klick.
+              Kein mühsames Zielen mit dem Daumen, kein Finger, der den halben
+              Bildschirm verdeckt. Ein Blick aufs Zifferblatt reicht, um zu sehen,
+              ob noch irgendwo Licht brennt.
+            </p>
+          </div>
+          <div class="device rahmen uhr">
+            <img src="assets/watch-regler-de.webp" width="422" height="514" loading="lazy"
+                 alt="Die Apple Watch als Drehregler: der Ring füllt das Display, darin die Helligkeit des Raums.">
+          </div>
         </div>
-        <p class="eyebrow">Mac</p>
-        <h3>Das Fenster</h3>
-        <p>
-          Dieselbe App als praktisches Fenster auf dem Schreibtisch oder in der
-          Küche. Sie kommuniziert direkt mit HomeKit auf deinem Mac – ein iPhone
-          muss nicht danebenliegen.
-        </p>
-      </div>
+      </article>
+      <article class="kachel glas breit zeigen">
+        <div>
+          <p class="eyebrow">Mac</p>
+          <h3>Das Fenster</h3>
+          <p>
+            Dieselbe App als praktisches Fenster auf dem Schreibtisch oder in der
+            Küche. Sie kommuniziert direkt mit HomeKit auf deinem Mac – ein iPhone
+            muss nicht danebenliegen.
+          </p>
+        </div>
+        <div class="bild">
+          <div class="device rahmen mac">
+            <img src="assets/mac.webp" width="1280" height="800" loading="lazy"
+                 alt="Lumen Circle auf dem Mac: ein Fenster mit grosser Uhrzeit, den Szenen und darunter den Räumen mit ihren Lichtringen.">
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="ring">
+<hr class="trenner">
+
+<section class="section korn" id="regler" aria-labelledby="ring-titel">
+  <div class="licht" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap two">
-    <div>
+    <div class="zeigen">
       <p class="eyebrow">Lichtsteuerung</p>
-      <h2 id="ring">Der Ring ist der Regler.</h2>
+      <h2 id="ring-titel">Der Ring <span class="glow">ist der Regler.</span></h2>
       <p class="muted">
         Wie weit der Bogen geschlossen ist, zeigt dir sofort, wie hell es im
         Raum ist. Der Ring leuchtet exakt in der Farbe deiner Lampen. Ausser
@@ -278,23 +392,25 @@
         Wohnzimmer brennt Licht“ statt „Leuchte 3 von 7 steht auf 72 %“.
       </p>
     </div>
-    <div class="device phone">
+    <div class="device phone rahmen phone zeigen spaet">
       <video src="assets/intro.mp4" width="1080" height="1920"
-             autoplay muted loop playsinline
+             autoplay muted loop playsinline preload="metadata"
              aria-label="Eine Hand nimmt ein iPhone auf und dimmt das Licht im Wohnzimmer von 90 auf 45 Prozent."></video>
     </div>
   </div>
 </section>
 
+<hr class="trenner">
+
 <section class="section" id="strom" aria-labelledby="strom-titel">
   <div class="wrap two">
-    <div class="device phone">
-      <img src="assets/strom.png" width="759" height="1650"
+    <div class="device phone rahmen phone zeigen">
+      <img src="assets/strom.webp" width="759" height="1650" loading="lazy"
            alt="Der Strom-Bildschirm: Strompreis mit Hoch- und Niedertarif, der aktuelle Verbrauch, Verbrauch und Kosten des Monats, darunter die Schalter für Meldungen.">
     </div>
-    <div>
+    <div class="zeigen spaet">
       <p class="eyebrow">Strom</p>
-      <h2 id="strom-titel">Transparenz bis aufs letzte Watt.</h2>
+      <h2 id="strom-titel">Transparenz bis aufs <span class="glow">letzte Watt.</span></h2>
       <p class="muted">
         Philips Hue-Lampen messen ihren eigenen Verbrauch nicht. Lumen Circle
         übernimmt das für dich – mit echten Messkurven von einem Prozent bis zur
@@ -318,40 +434,52 @@
   </div>
 </section>
 
+<hr class="trenner">
+
 <section class="section" aria-labelledby="mehr">
   <div class="wrap">
-    <p class="eyebrow">Ausserdem</p>
-    <h2 id="mehr">Was die App sonst noch kann.</h2>
+    <div class="kopf zeigen">
+      <p class="eyebrow">Ausserdem</p>
+      <h2 id="mehr">Was die App <span class="glow">sonst noch kann.</span></h2>
+    </div>
     <dl class="features">
-      <div>
+      <div class="glas zeigen">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h10a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h7"/></svg></span>
         <dt>Luftqualität im Blick</dt>
         <dd>Der CO₂-Wert steigt oft über Stunden unbemerkt an. Man wird müde, lange bevor die Luft stickig riecht. Lumen Circle ordnet die Werte ein — von sehr gut bis sehr schlecht — und erinnert dich sanft ans Lüften.</dd>
       </div>
-      <div>
+      <div class="glas zeigen spaet">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span>
         <dt>Licht vergessen?</dt>
         <dd>Wer das Haus verlässt, bekommt eine Mitteilung aufs iPhone oder die Watch, wenn noch Licht brennt. Benötigt die Standortfreigabe „Immer“, ist ab Werk aber ausgeschaltet.</dd>
       </div>
-      <div>
+      <div class="glas zeigen spaeter">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></span>
         <dt>Widgets und Komplikationen</dt>
         <dd>Brennt noch irgendwo Licht? Die Antwort siehst du direkt auf dem Homescreen oder dem Zifferblatt, ohne die App öffnen zu müssen.</dd>
       </div>
-      <div>
+      <div class="glas zeigen">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.8 2-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></span>
         <dt>Zehn Farbwelten</dt>
         <dd>Vom hellen „Papier“ bis zum dunklen „Graphit“. Nachts wechselt das Panel automatisch in ein warmes, augenschonendes Profil.</dd>
       </div>
-      <div>
+      <div class="glas zeigen spaet">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19 9 5l5 14M5.8 14h6.4M15 19l3-8 3 8M15.9 16.5h4.2"/></svg></span>
         <dt>Barrierefreie Lesbarkeit</dt>
         <dd>Die App übernimmt die Textgrösse aus deinen Systemeinstellungen. Ein Panel im Flur soll schliesslich von allen gelesen werden können.</dd>
       </div>
-      <div>
+      <div class="glas zeigen spaeter">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7z"/></svg></span>
         <dt>Kurzbefehle als Kacheln</dt>
         <dd>Saugroboter, Kaffeemaschine – alles, was HomeKit nicht nativ spricht, aber über die Kurzbefehle-App läuft, bekommt eine eigene Kachel. Inklusive 5-Schritte-Anleitung.</dd>
       </div>
-      <div>
+      <div class="glas zeigen">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18h18M6 18a6 6 0 0 1 12 0M12 4v3M4.2 9.2l2 1.5M19.8 9.2l-2 1.5M8 21h8"/></svg></span>
         <dt>Sanftes Wecklicht</dt>
         <dd>Startet bei einem Prozent in tiefem Bernstein und dimmt bis zur Weckzeit langsam auf volles Tageslicht hoch.</dd>
       </div>
-      <div>
+      <div class="glas zeigen spaet">
+        <span class="zeichen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span>
         <dt>Party-Modus</dt>
         <dd>Das Licht tanzt im Takt. Der Pegel wird rein lokal auf dem Gerät gemessen – es wird absolut nichts aufgenommen.</dd>
       </div>
@@ -359,40 +487,40 @@
   </div>
 </section>
 
+<hr class="trenner">
+
 <section class="section" id="einrichten" aria-labelledby="einrichten-titel">
   <div class="wrap">
-    <p class="eyebrow">Einrichten</p>
-    <h2 id="einrichten-titel">In drei Schritten bereit – ganz ohne Account.</h2>
+    <div class="kopf zeigen">
+      <p class="eyebrow">Einrichten</p>
+      <h2 id="einrichten-titel">In drei Schritten bereit – <span class="glow">ganz ohne Account.</span></h2>
+    </div>
     <ol class="steps">
-      <li>
-        <div>
-          <h3>Zugriff auf dein Zuhause erlauben.</h3>
-          <p>Räume, Namen und Szenen werden direkt aus der Apple Home-App übernommen. Lumen Circle spricht lokal mit HomeKit. Keine Anmeldung, kein externer Dienst dazwischen.</p>
-        </div>
+      <li class="glas zeigen">
+        <h3>Zugriff auf dein Zuhause erlauben.</h3>
+        <p>Räume, Namen und Szenen werden direkt aus der Apple Home-App übernommen. Lumen Circle spricht lokal mit HomeKit. Keine Anmeldung, kein externer Dienst dazwischen.</p>
       </li>
-      <li>
-        <div>
-          <h3>Knopf auf der Hue Bridge drücken.</h3>
-          <p>Schon wird der Stromverbrauch gezählt. Die App findet die Bridge in deinem Heimnetzwerk automatisch.</p>
-        </div>
+      <li class="glas zeigen spaet">
+        <h3>Knopf auf der Hue Bridge drücken.</h3>
+        <p>Schon wird der Stromverbrauch gezählt. Die App findet die Bridge in deinem Heimnetzwerk automatisch.</p>
       </li>
-      <li>
-        <div>
-          <h3>Berechtigungen nach Bedarf.</h3>
-          <p>iOS fragt dich erst nach lokalem Netzwerk, Mitteilungen oder Standort, wenn du die Funktion das erste Mal nutzt. Lehnst du ab, fehlt nur diese eine Funktion.</p>
-        </div>
+      <li class="glas zeigen spaeter">
+        <h3>Berechtigungen nach Bedarf.</h3>
+        <p>iOS fragt dich erst nach lokalem Netzwerk, Mitteilungen oder Standort, wenn du die Funktion das erste Mal nutzt. Lehnst du ab, fehlt nur diese eine Funktion.</p>
       </li>
     </ol>
-    <p class="note">
+    <p class="note zeigen">
       Voraussetzung ist ein eingerichtetes Zuhause in der Apple Home-App.
       Zubehör ohne HomeKit erreichst du über einen Kurzbefehl.
     </p>
   </div>
 </section>
 
+<hr class="trenner">
+
 <div class="section" id="preis">
   <div class="wrap split">
-    <section aria-labelledby="preis-titel">
+    <section class="glas zeigen" aria-labelledby="preis-titel">
       <p class="eyebrow">Preis</p>
       <h2 id="preis-titel">Fairer Preis.</h2>
       <p class="muted">
@@ -409,7 +537,7 @@
         immer der Preis, den dir der App Store vor dem Kauf nennt.
       </p>
     </section>
-    <section id="datenschutz" aria-labelledby="datenschutz-titel">
+    <section class="glas zeigen spaet" id="datenschutz" aria-labelledby="datenschutz-titel">
       <p class="eyebrow">Datenschutz</p>
       <h2 id="datenschutz-titel">Voller Datenschutz.</h2>
       <p class="muted">
@@ -425,36 +553,53 @@
   </div>
 </div>
 
+<hr class="trenner">
 
 <section class="section" id="fragen" aria-labelledby="fragen-titel">
   <div class="wrap">
-    <p class="eyebrow">Fragen</p>
-    <h2 id="fragen-titel">Häufige Fragen</h2>
+    <div class="kopf mitte zeigen">
+      <p class="eyebrow">Fragen</p>
+      <h2 id="fragen-titel">Häufige Fragen</h2>
+    </div>
     <div class="fragen">
-      <div class="frage">
-        <h3>Brauche ich Philips Hue für Lumen Circle?</h3>
+      <details class="frage glas zeigen">
+        <summary>Brauche ich Philips Hue für Lumen Circle?</summary>
         <p>Nein. Lumen Circle zeigt und steuert alles, was in deiner Apple Home-App steht — Licht, Steckdosen, Sensoren. Eine Hue Bridge braucht nur der Stromzähler, weil Hue-Lampen ihren Verbrauch nicht selbst melden.</p>
-      </div>
-      <div class="frage">
-        <h3>Brauche ich ein Konto oder eine Anmeldung?</h3>
+      </details>
+      <details class="frage glas zeigen">
+        <summary>Brauche ich ein Konto oder eine Anmeldung?</summary>
         <p>Nein. Es gibt weder Anmeldung noch Server. Die App spricht direkt mit HomeKit und mit deiner Hue Bridge im eigenen Netz.</p>
-      </div>
-      <div class="frage">
-        <h3>Auf welchen Geräten läuft die App?</h3>
-        <p>Auf iPhone, iPad, Apple Watch und Mac — ein Abo für alle vier. Vorausgesetzt sind iOS, iPadOS und macOS 26 oder neuer.</p>
-      </div>
-      <div class="frage">
-        <h3>Wie misst die App den Stromverbrauch von Hue-Lampen?</h3>
+      </details>
+      <details class="frage glas zeigen">
+        <summary>Auf welchen Geräten läuft die App?</summary>
+        <p>Auf iPhone, iPad, Apple Watch und Mac — ein Abo für alle vier. Vorausgesetzt sind iOS, iPadOS und macOS 26 oder neuer. Auf dem iPhone Duo nutzt die App beide Bildschirme.</p>
+      </details>
+      <details class="frage glas zeigen">
+        <summary>Wie misst die App den Stromverbrauch von Hue-Lampen?</summary>
         <p>Aus Modell, Schaltzustand, Helligkeit und Farbe, mit echten Messkurven von einem Prozent bis zur vollen Helligkeit. Die Werte stammen aus dem offenen Projekt Powercalc. Für Lampen ohne Kurve rechnet die App mit Schätzwerten und kennzeichnet sie.</p>
-      </div>
-      <div class="frage">
-        <h3>Was kostet Lumen Circle?</h3>
+      </details>
+      <details class="frage glas zeigen">
+        <summary>Was kostet Lumen Circle?</summary>
         <p>Ein Jahresabo, die ersten vier Tage kostenlos. Was es bei dir kostet, zeigt der App Store — der Preis richtet sich nach dem Land.</p>
-      </div>
-      <div class="frage">
-        <h3>Welche Daten verlassen das Gerät?</h3>
+      </details>
+      <details class="frage glas zeigen">
+        <summary>Welche Daten verlassen das Gerät?</summary>
         <p>Praktisch keine. Kein Konto, keine Werbung, keine Auswertung. Nach draussen gehen nur der Kauf über den App Store und die Modellkennung deiner Lampe, um das richtige Stromprofil zu laden.</p>
-      </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section schluss korn" aria-labelledby="schluss-titel">
+  <div class="licht" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <svg class="ring-gross zeigen" aria-hidden="true"><use href="#ring"/></svg>
+    <h2 id="schluss-titel" class="zeigen">Dein Zuhause <span class="glow">auf einen Blick.</span></h2>
+    <p class="lede zeigen spaet">Die ersten vier Tage komplett kostenlos. Auf iPhone, iPhone Duo, iPad, Apple Watch und Mac.</p>
+    <div class="store-zeile zeigen spaeter">
+      <a class="store" href="https://apps.apple.com/app/id6808305525">
+        <svg aria-hidden="true"><use href="#apfel"/></svg>Im App Store laden
+      </a>
     </div>
   </div>
 </section>
@@ -462,18 +607,25 @@
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap fuss">
+    <div>
+      <a class="brand" href="#">
+        <svg class="mark" aria-hidden="true"><use href="#ring"/></svg>
+        <span>Lumen Circle</span>
+      </a>
+      <p>Lumen Circle ist ein unabhängiges Produkt und steht in keiner Verbindung zu Apple Inc. oder Signify.
+         Apple, HomeKit, iPhone, iPad, Mac und Apple Watch sind Marken von Apple Inc. Philips Hue ist eine Marke von Signify.</p>
+      <p class="copyright">© 2026 Lumen Circle</p>
+    </div>
     <nav aria-label="Rechtliches">
       <a href="datenschutz.html">Datenschutz</a>
       <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
       <a href="support.html">Support</a>
       <a href="impressum.html">Impressum</a>
     </nav>
-    <p>Lumen Circle ist ein unabhängiges Produkt und steht in keiner Verbindung zu Apple Inc. oder Signify.
-       Apple, HomeKit, iPhone, iPad, Mac und Apple Watch sind Marken von Apple Inc. Philips Hue ist eine Marke von Signify.</p>
-    <p class="copyright">© 2026 Lumen Circle</p>
   </div>
 </footer>
 
+<script src="seite.js?v=2026-10-25" defer></script>
 </body>
 </html>

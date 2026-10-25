@@ -5,29 +5,38 @@ Framework. Drei HTML-Dateien, ein Stylesheet, zwei Medien.
 
 ## Aufbau
 
-    index.html        Startseite
-    datenschutz.html  Datenschutzerklaerung (fuer den App Store noetig)
-    impressum.html    Impressum — die Angaben muessen noch ausgefuellt werden
-    styles.css        Farbwelt und Typografie, aus der App uebernommen
-    assets/           Screenshot und Einleitungsfilm
+    index.html          Startseite (de-CH)
+    en/index.html       Startseite (en)
+    datenschutz.html …  Rechtstexte, je Sprache; noindex, nicht in der Sitemap
+    styles.css          Farbwelt, Typografie, Glasflächen — aus der App übernommen
+    seite.js            Erscheinen beim Scrollen und das Duo-Kapitel; ohne Skript
+                        ist alles lesbar
+    assets/             Bilder als WebP, das Duo frei gestellt in Apples
+                        Geräterahmen; og-*.jpg für geteilte Links; intro.mp4
+
+Stylesheet und Skript tragen eine Versionsmarke (`styles.css?v=…`). Wer sie
+ändert, setzt die Marke neu — sonst zeigen Browser noch Stunden die alte Fassung.
+
+## Bilder
+
+Die Aufnahmen stammen aus dem Simulator, mit dem Vorführ-Zuhause und fester
+Uhrzeit; die Werkzeuge dafür liegen unter `~/.appstoreconnect/store-bilder/`.
+Die Duo-Rahmen sind Apples „Product Bezels" (Apple Design Resources) und
+dürfen nur für Darstellungen der App verwendet werden; die Rahmen selbst
+gehören nicht in dieses Repository.
 
 ## Ansehen
 
     python3 -m http.server 8791
 
-Dann http://localhost:8791 oeffnen. Ein Build-Schritt existiert nicht und
-soll auch nicht entstehen: Was sich mit einer Datei loesen laesst, braucht
+Dann http://localhost:8791 öffnen. Ein Build-Schritt existiert nicht und
+soll auch nicht entstehen: Was sich mit einer Datei lösen lässt, braucht
 keine Werkzeugkette.
 
-## Veroeffentlichen
+## Veröffentlichen
 
-Jeder Push auf `main` laedt die Seite per FTP zu Hostinger hoch
-(`.github/workflows/deploy.yml`). Dafuer muessen im Repository drei
-Geheimnisse hinterlegt sein — `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD` — zu
-finden im hPanel unter *Dateien -> FTP-Konten*.
-
-Alternativ kann Hostinger das Repository auch selbst abholen
-(hPanel -> *Erweitert -> Git*). Dann wird der Workflow nicht gebraucht.
+Jeder Push auf `main` veröffentlicht die Seite über **GitHub Pages**
+(`CNAME` → lumencircle.ch), meist innerhalb einer Minute.
 
 ## Mail
 
